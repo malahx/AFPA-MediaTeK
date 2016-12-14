@@ -1,0 +1,386 @@
+/*###############################################
+################################################
+###
+###  STRUCTURE
+###
+###############################################
+##############################################*/
+
+body{
+	font-family: Verdana;
+	background: #FFFFFF;
+	font-size: 10px;
+	font-weight: regular;
+	color: #463F3E;
+
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+.menu_n1_en_tete {
+	font-family: Verdana;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+.bas_de_page {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+
+.menu_n1 {
+	font-family: Verdana;
+	font-size: 11px;
+	font-weight: bold;
+	color: #666666;
+}
+
+.menu_n1_on {
+	font-family: Verdana;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFBB10;
+}
+
+.menu_n2 {
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: normal;
+	color: #7C6B69;
+}
+
+.menu_n2_on {
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: normal;
+	color: #C06C6C;
+}
+
+.col_gauche_n1{
+	font-family: Verdana;
+	font-size: 11px;
+	font-weight: bold;
+	background-color: #F2F4F4;
+}
+
+.col_gauche_n2_on{
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: normal;
+	color: #FFFFFF;
+	background-color: #FFBC10;
+}
+
+.intro {
+	font-family: Verdana;
+	font-size: 11px;
+	color: #868C94;
+}
+
+.page {
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: normal;
+	color: #7C6B69;
+}
+
+.page_on {
+	font-family: Verdana;
+	font-size: 10px;
+	font-weight: normal;
+	color: #C06C6C;
+}
+
+.texte_marron {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #906865;
+}
+
+.titre {
+	font-family: Verdana;
+	font-size: 12px;
+	color: #5597D1;
+	font-weight: bold;
+}
+
+.outils {
+	font-family: Verdana;
+	font-size: 11px;
+	color: #999999;
+	font-weight: normal;
+}
+
+.access_pass {
+	font-family: Verdana;
+	font-size: 10px;
+	color: #7D9828;
+}
+
+.copyright {
+	font-family: Verdana;
+	font-size: 9px;
+	color: #906865;
+}
+
+input.champ {
+	font-family: Verdana;
+	font-size: 10px;
+	color: #7F9DB9;
+	border: 1px solid #7F9DB9;
+}
+
+
+.tableau_rub_col_gauche{
+	border: 1px solid #EDEEEF;
+}
+
+/*###############################################
+################################################
+###
+###  CONTENU
+###
+###############################################
+##############################################*/
+
+/*------------------------------------Tableau------------------------------------*/
+
+table{
+	font-size: 10px;
+	color: #463F3E;
+}
+
+/*------------------------------------Les Listes------------------------------------*/
+li {
+	list-style-position: outside;
+	list-style-image: url(http://www.pleyber-christ.fr/medias/images/www/contenu/communs/puce_liste.gif);
+	list-style-type: Aucune;
+	font-weight: regular;
+	color: #868C95;
+	font-size: 10px;
+}
+
+/*------------------------------------Les Fonds------------------------------------*/
+.fond_1{
+	background-color: #FFFFFF;
+}
+.fond_2{
+	background-color: #F2F4F4;
+}
+
+/*------------------------------------Spécifique------------------------------------*/
+.titre-page{
+	font-family: verdana;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFB700;
+	width: 100%;
+	background: #FFFFFF;
+	margin-top: 2px;
+	/*border-bottom: 1px solid #868B94;	*/
+}
+
+.sous-titre-page{
+	font-family: verdana;
+	font-size: 12px;
+	color: #5597D1;
+}
+
+.chapeau{
+	font-family: verdana;
+	font-size: 10px;
+	font-weight: regular;
+	color: #7C6B69;
+	background: #F6F6F8;
+}
+.titre-article{
+	font-family: verdana;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFB700;
+	width: 100%;
+	background: #FFFFFF;
+	margin-top: 2px;
+	border-bottom: 1px dashed #868B94;		
+}
+.sous-titre-article{
+	font-family: verdana;
+	font-size: 10px;
+	font-weight: bold;
+	color: #868C95;
+}
+.texte{
+	font-family: verdana;
+	font-size: 10px;
+	font-weight: regular;
+	color: #463F3E;
+}
+.legende{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: regular;
+	color: #868B94;
+
+}
+
+
+
+
+
+
+/*------------------------------------Formulaires------------------------------------*/
+
+input.outils {
+font-size: 11px;
+color: #808080;
+border:0px solid black;
+background-color:#FFFFFF;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+input.texte {
+font-size: 11px;
+color: #808080;
+border:1px solid #808080;
+background-color:#FFFFFF;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+input.texte_erreur {
+font-size: 11px;
+color: #FFFFFF;
+border:0px solid black;
+background-color:#FF0000;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+.t1_r {
+	color:#FF0000;
+}
+
+
+/*------------------------------------STRUCTURES------------------------------------*/
+
+.barre_article {
+	width: 220px;
+	height: 1px;
+	background: #CB1242;
+}
+
+.contenaire_photo {
+	width: 220px;
+	padding: 2px;
+	border: 1px solid #FFB700;
+}
+
+.contenaire_titre {
+	font-family: Verdana;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFB700;
+	width: 100%;
+	height: 16px;
+	margin-right: 0px; 
+	background: #FFFFFF;
+	margin-top: 2px;
+	/*border-bottom: 1px solid #868B94;*/
+}
+
+.mini_colonne {
+  float: left;
+  width: 105px;
+  margin-right: 10px;
+}
+
+
+
+a {
+	font-family: verdana;
+	 text-decoration: none;
+	font-weight: regular;
+	color: #FF8400;
+	font-size: 10px;
+}
+a:hover {  font-size: 10px;color: #906865; text-decoration: none; }
+a:active {  font-size: 10px;color: #906865; text-decoration: none; }
+
+
+a.outils {
+	font-family: verdana;
+	 text-decoration: none;
+	font-weight: regular;
+	color: #999999;
+	font-size: 11px;
+}
+a.outils:hover {  font-size: 11px;color: #FFBB10; text-decoration: none; }
+a.outils:active {  font-size: 11px;color: #FFBB10; text-decoration: none; }
+
+
+a.menu {
+	font-family: verdana;
+	 text-decoration: none;
+	font-weight: regular;
+	color: #7C6B69;
+	font-size: 10px;
+}
+a.menu:hover {  font-size: 10px;color: #C06C6C; text-decoration: none; }
+a.menu:active {  font-size: 10px;color: #C06C6C; text-decoration: none; }
+
+
+
+
+		/*############################
+		### Calendrier
+		############################*/
+		.calendrier {
+			margin:0;
+			border:0;
+			background: #FFFFFF;
+		}
+
+		a.calendrier_on {
+			font-family: Verdana;
+			font-size: 10px;
+			font-weight: normal;
+			color: #48453F;
+			background: #FFBB10;
+			width: 20px;
+		}
+
+		.calendrier_jour {
+				color: #FFFFFF;	
+		}
+
+		.calendrier_en_tete {
+			margin:0px;
+			border:0px;
+			width: 213px;
+			background: #FFFFFF;
+			border-style:dashed;
+			border-color: #878996;
+			border-width: 1px;	
+					
+		}
+
+
+		.calendrier_en_tete2 {
+			margin:0px;
+			width: 170px;
+			height: 42px;
+			font-family: Verdana;
+			font-size: 11px;
+			font-weight: bold;
+			color: #48453F;	
+			text-align:center;
+			background: #FFBB10;
+
+			border-style: solid;
+			border-color: #F8EBD4;
+			border-width: 1px;
+			
+			text-align:center;
+		}

@@ -1,0 +1,147 @@
+/* GENERAL */
+.mobile-hidden {
+    display: none;
+}
+.hidden {
+    display: none;
+}
+.right {
+    display: inline-block;
+    float: right;
+}
+.no-decor {
+    text-decoration: none;
+}
+.color-nav {
+    color: black;
+}
+.color-nav:hover {
+    color: white;
+}
+.color-nextpage {
+    color: white;
+}
+.color-nextpage:hover {
+    color: black;
+}
+.bold {
+    font-weight: bold;
+}
+.italic {
+    font-style: italic;
+}
+.center {
+    text-align: center;
+}
+.flex-parent-col {
+    display: flex;
+    flex-direction: column;
+}
+.flex-parent-row {
+    display: flex;
+    flex-direction: row;
+}
+.flex-child {
+    align-items: flex-start;
+    align-self: center;
+}
+.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background-color: #FFBB10;
+}
+.red {
+    color: #A94442;
+    background-color: #F2DEDE;
+}
+.green {
+    color: #3C764F;
+    background-color: #DFF0D8;
+}
+.orange {
+    color: #9C6D3B;
+    background-color: #FCF8E3;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+/* HEADER */
+body>header img {
+    width: 100%;
+    height: 100%;
+}
+
+/* NAV */
+body>nav, body>footer {
+    background-color: #FFBB10;   
+}
+body>header, body>nav>header, body>nav>footer, body>main>section li.border, body>main>footer {
+    border-bottom: 2px solid #E0A10D;
+}
+body>nav>header .nav {
+    width: 50%; 
+}
+body>nav>footer {
+    color: white;
+    font-size: 20px;
+    cursor: default;
+    width: 100%;
+}
+body>main ul {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+body>main li {
+    padding: 5px;
+    list-style-type: none;
+}
+body>main>section li>a {
+    color: inherit;
+}
+body>main>section li>a .cover {
+    width: 39%;
+    max-height: 200px;
+}
+body>main>section li>a .info {
+    width: 59%;
+}
+body>main>section li>a .info .text {
+    width: 100%;
+}
+body>main>section li>a .info .ico {
+    width: 100%;
+    height: 100%;
+}
+body>main>footer {
+    background-color: #878C95;
+}
+body>main>footer>ul {
+    width: 100%;
+}
+body>main>footer>ul>li {
+    width: 100%;
+    border-left: 1px solid #75787C;
+    border-right: 1px solid #75787C;
+}
+
+@media screen and (min-width: 800px) {
+    .mobile-hidden {
+        display: inherit;
+    }
+    body>header {
+        margin-left: 15em;
+        margin-right: 15em;
+    }
+    body>header img {
+        width: inherit;
+        height: inherit;
+    }
+    body>header .flex-parent-col {
+        flex-direction: row;
+    }
+}
