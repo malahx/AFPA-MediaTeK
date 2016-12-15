@@ -1,0 +1,28 @@
+{# modal Twig template #}
+<div id="loginModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <header class="modal-info">
+            <span id="loginModalClose" class="close">&times;</span>
+            <h2>Se connecter</h2>
+        </header>
+        <section>
+            <form class="" action="{{ path("fos_user_security_check") }}" method="post">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <label for="username">
+                    <input type="text" class="form-control" id="username" name="_username" placeholder="Utilisateur" required="required">
+                </label>
+                <label for="password">
+                    <input type="password" class="form-control" id="password" name="_password" placeholder="Mot de passe" required="required">
+                </label>
+                <label for="remember_me">
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on">
+                </label>
+                <button type="submit" id="_submit" name="_submit" class="">&nbsp;Login</button>
+            </form>
+        </section>
+        <footer class="modal-info">
+        </footer>
+    </div>
+</div>
