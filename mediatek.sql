@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 16 Décembre 2016 à 08:41
+-- Généré le :  Ven 16 Décembre 2016 à 10:40
 -- Version du serveur :  5.7.16-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.13-1+deb.sury.org~xenial+1
 
@@ -131,10 +131,10 @@ INSERT INTO `document` (`id`, `date`, `title`, `cover`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `events`
+-- Structure de la table `event`
 --
 
-CREATE TABLE `events` (
+CREATE TABLE `event` (
   `id` int(11) NOT NULL,
   `date` datetime NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -226,9 +226,9 @@ ALTER TABLE `document`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `events`
+-- Index pour la table `event`
 --
-ALTER TABLE `events`
+ALTER TABLE `event`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -279,9 +279,9 @@ ALTER TABLE `comic`
 ALTER TABLE `document`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT pour la table `events`
+-- AUTO_INCREMENT pour la table `event`
 --
-ALTER TABLE `events`
+ALTER TABLE `event`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `reservation`
