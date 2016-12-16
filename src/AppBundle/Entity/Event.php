@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Events
  *
- * @ORM\Table(name="events")
+ * @ORM\Table(name="event")
  * @ORM\Entity
  */
-class Events
+class Event
 {
     /**
      * @var \DateTime
