@@ -45,7 +45,7 @@ class Cd
      */
     private $document;
 
-    // @int reserved: 1; borrow: 2, default = null
+    // @int reserved: 1; borrow: 2, returned: 3, default = null
     private $borrow;
 
     /**

@@ -2,30 +2,28 @@
 
 namespace AppBundle\Repository;
 
-use DateTime;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\ORM\EntityRepository;
 
 class BookRepository extends EntityRepository {
 
-    public function findAllAfter($em, DateTime $date) {
+    public function findAllAfter($date) {
         $qb = $this->createQueryBuilder('b')
                 ->join('b.document', 'd')
                 ->where('d.date > :date')
                 ->setParameter('date', $date);
         $books = $qb->getQuery()->getResult();
-        $repoBorrow = $em->getRepository('AppBundle:Borrow');
-        $borrows = $repoBorrow->findAllActive();
-        // A améliorer (intégrer dans le contructeur de l'entité par exemple, ou un meilleur query builder)
-        foreach ($books as $book) {
-            foreach ($borrows as $borrow) {
-                if ($borrow->getDocument() == $book->getDocument()) {
-                    $book->setBorrow($borrow->getBorrowing() ? 2 : 1);
-                    break;
-                }
-            }
-        }
+        return BorrowRepository::setBorrow($this, $books);
+    }
 
-        return $books;
+    public function findAllBorrowedBy($user_id) {
+        $qb = $this->createQueryBuilder('b')
+                ->join('b.document', 'd')
+                ->leftJoin('AppBundle\Entity\Borrow', 'bo', Join::WITH, 'bo.document = d')
+                ->where('bo.user = :user_id')
+                ->setParameter('user_id', $user_id);
+        $books = $qb->getQuery()->getResult();
+        return BorrowRepository::setBorrow($this, $books, $user_id);
     }
 
 }

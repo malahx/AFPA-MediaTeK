@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use DateTime;
 use DateInterval;
+use AppBundle\Repository\BorrowRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,16 +17,16 @@ class DefaultController extends Controller {
     public function newsAction(Request $request) {
         $date = new DateTime();
         $date->sub(new DateInterval('P1M'));
-        
+
         $em = $this->getDoctrine()->getManager();
-        
+
         $repoBook = $em->getRepository('AppBundle:Book');
         $repoCd = $em->getRepository('AppBundle:Cd');
         $repoComic = $em->getRepository('AppBundle:Comic');
-        
-        $books = $repoBook->findAllAfter($em, $date);
-        $cds = $repoCd->findAllAfter($em, $date);
-        $comics = $repoComic->findAllAfter($em, $date);
+
+        $books = $repoBook->findAllAfter($date);
+        $cds = $repoCd->findAllAfter($date);
+        $comics = $repoComic->findAllAfter($date);
 
         return $this->render('AppBundle::home.html.twig', array(
                     'title' => 'Nouveautés',
@@ -39,14 +40,14 @@ class DefaultController extends Controller {
      */
     public function catalogueAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
-        
+
         $repoBook = $em->getRepository('AppBundle:Book');
         $repoCd = $em->getRepository('AppBundle:Cd');
         $repoComic = $em->getRepository('AppBundle:Comic');
-        
-        $books = $repoBook->findAll();
-        $cds = $repoCd->findAll();
-        $comics = $repoComic->findAll();
+
+        $books = BorrowRepository::setBorrow($repoBook, $repoBook->findAll());
+        $cds = BorrowRepository::setBorrow($repoCd, $repoCd->findAll());
+        $comics = BorrowRepository::setBorrow($repoComic, $repoComic->findAll());
 
         return $this->render('AppBundle::home.html.twig', array(
                     'title' => 'Catalogue',
@@ -59,17 +60,23 @@ class DefaultController extends Controller {
      * @Route("/emprunts", name="emprunts")
      */
     public function empruntsAction(Request $request) {
-        $em = $this->getDoctrine()->getManager();
-        
-        $repoBorrow = $em->getRepository('AppBundle:Borrow');
-        
         $user_id = $this->getUser()->getId();
-        
-        $borrows = $repoBorrow->findAllFrom($user_id);
 
-        return $this->render('AppBundle::borrows.html.twig', array(
+        $em = $this->getDoctrine()->getManager();
+
+        $repoBook = $em->getRepository('AppBundle:Book');
+        $repoCd = $em->getRepository('AppBundle:Cd');
+        $repoComic = $em->getRepository('AppBundle:Comic');
+
+        $books = $repoBook->findAllBorrowedBy($user_id);
+        $cds = $repoCd->findAllBorrowedBy($user_id);
+        $comics = $repoComic->findAllBorrowedBy($user_id);
+
+        return $this->render('AppBundle::home.html.twig', array(
                     'title' => 'Vos Emprunts',
-                    'borrows' => $borrows));
+                    'books' => $books,
+                    'cds' => $cds,
+                    'comics' => $comics));
     }
-   
+
 }
