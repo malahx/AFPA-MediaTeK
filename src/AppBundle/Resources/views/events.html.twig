@@ -1,0 +1,15 @@
+{# borrows Twig template #}
+{% extends 'AppBundle:elements:base.html.twig' %}
+{% block body %}
+    <main>
+        <section>
+            <ul id="events">
+            </ul>
+        </section>
+        <footer>
+        </footer>
+    </main>
+{% endblock %}
+{% block javascripts %}
+    {% include 'AppBundle:elements:ajax.js.twig' %}
+{% endblock %}

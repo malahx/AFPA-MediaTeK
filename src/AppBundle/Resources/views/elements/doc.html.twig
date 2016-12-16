@@ -1,7 +1,7 @@
 {# doc Twig template #}
 {% set color = (borrow == null ? 'green' : (borrow == 1 ? 'orange' : 'red')) %}
 {% set icon = (borrow == null ? 'plus-circle' : (borrow == 1 ? 'times-circle' : 'minus-circle')) %}
-{% set text = (borrow == null ? 'Disponible' : (borrow == 1 ? 'Réservé' : 'Non disponible')) %}
+{% set text = (borrow == null ? 'Disponible' : (borrow == 1 ? 'Réservé' : 'Emprunté')) %}
 <li class="border {{ color }}">
     <a class="flex-parent-row no-decor" href="#" title="{{ docTitle }} - {{ author }}">
         <img class="flex-child cover center" src="{{ asset('bundles/app/img/' ~ cover) }}" alt="{{ docTitle }}"/>

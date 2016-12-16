@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 16 Décembre 2016 à 10:40
+-- Généré le :  Ven 16 Décembre 2016 à 11:59
 -- Version du serveur :  5.7.16-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.13-1+deb.sury.org~xenial+1
 
@@ -138,8 +138,19 @@ CREATE TABLE `event` (
   `id` int(11) NOT NULL,
   `date` datetime NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `description` text COLLATE utf8_unicode_ci NOT NULL
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `cover` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `event`
+--
+
+INSERT INTO `event` (`id`, `date`, `title`, `description`, `cover`) VALUES
+(1, '2016-12-21 18:00:00', 'U4 ', '4 livres, 4 auteurs, 4 livres, 4 rendez-vous !', 'uploads/U4.jpg'),
+(2, '2016-12-09 21:00:00', 'Soirée jeux de société', 'Venez jouer au dernier jeu avec toutes l\'équipes de la médiathèque.', 'uploads/U4.jpg'),
+(3, '2017-01-10 18:00:00', 'U4', '4 livres, 4 auteurs, 4 livres, 4 rendez-vous !', 'uploads/U4.jpg'),
+(4, '2017-01-09 21:00:00', 'Soirée jeux de société', 'Venez jouer au dernier jeu avec toutes l\'équipes de la médiathèque.', 'uploads/U4.jpg');
 
 -- --------------------------------------------------------
 
@@ -282,7 +293,7 @@ ALTER TABLE `document`
 -- AUTO_INCREMENT pour la table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `reservation`
 --
