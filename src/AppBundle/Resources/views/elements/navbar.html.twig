@@ -44,7 +44,7 @@
                     </a>
                 </div>
                 <div class="flex-child">
-                    <a class="link-color-white no-decor" href="{{ path('emprunts') }}">
+                    <a class="link-color-white no-decor" href="{{ path('myborrows') }}">
                         <i class="fa fa-bookmark" aria-hidden="true"></i>
                         <span>Vos emprunts</span>
                     </a>
@@ -64,14 +64,14 @@
             {% endif %}
             {% if is_granted("ROLE_ADMIN") %}
                 <div class="flex-child">
-                    <a class="link-color-white no-decor" href="#">
+                    <a class="link-color-white no-decor" href="{{ path('borrows') }}">
                         <i class="fa fa-lock" aria-hidden="true"></i>
-                        <span>Administrateur</span>
+                        <span>Tous les Emprunts</span>
                     </a>
                 </div>
             {% endif %}
             <div class="flex-child">
-                <a class="link-color-white no-decor" href="#">
+                <a class="link-color-white no-decor" href="{{ path('events') }}">
                     <i class="fa fa-calendar" aria-hidden="true"></i>
                     <span>Evènements</span>
                 </a>

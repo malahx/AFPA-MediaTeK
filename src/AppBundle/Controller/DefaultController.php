@@ -57,9 +57,9 @@ class DefaultController extends Controller {
     }
 
     /**
-     * @Route("/emprunts", name="emprunts")
+     * @Route("/myborrows", name="myborrows")
      */
-    public function empruntsAction(Request $request) {
+    public function myborrowsAction(Request $request) {
         $user_id = $this->getUser()->getId();
 
         $em = $this->getDoctrine()->getManager();
@@ -68,9 +68,9 @@ class DefaultController extends Controller {
         $repoCd = $em->getRepository('AppBundle:Cd');
         $repoComic = $em->getRepository('AppBundle:Comic');
 
-        $books = $repoBook->findAllBorrowedBy($user_id);
-        $cds = $repoCd->findAllBorrowedBy($user_id);
-        $comics = $repoComic->findAllBorrowedBy($user_id);
+        $books = $repoBook->findAllBorrowed($user_id);
+        $cds = $repoCd->findAllBorrowed($user_id);
+        $comics = $repoComic->findAllBorrowed($user_id);
 
         return $this->render('AppBundle::home.html.twig', array(
                     'title' => 'Vos Emprunts',
@@ -79,4 +79,25 @@ class DefaultController extends Controller {
                     'comics' => $comics));
     }
 
+    /**
+     * @Route("/borrows", name="borrows")
+     */
+    public function borrowsAction(Request $request) {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $repoBook = $em->getRepository('AppBundle:Book');
+        $repoCd = $em->getRepository('AppBundle:Cd');
+        $repoComic = $em->getRepository('AppBundle:Comic');
+
+        $books = $repoBook->findAllBorrowed();
+        $cds = $repoCd->findAllBorrowed();
+        $comics = $repoComic->findAllBorrowed();
+
+        return $this->render('AppBundle::home.html.twig', array(
+                    'title' => 'Tous les Emprunts',
+                    'books' => $books,
+                    'cds' => $cds,
+                    'comics' => $comics));
+    }
 }
