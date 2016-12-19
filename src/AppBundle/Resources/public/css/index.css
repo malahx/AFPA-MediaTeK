@@ -54,9 +54,6 @@
     align-items: flex-start;
     align-self: center;
 }
-.flex-child {
-    align-items: flex-end;
-}
 .fixed {
     position: fixed;
     top: 0;
