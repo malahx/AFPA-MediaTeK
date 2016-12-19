@@ -23,6 +23,8 @@ class BookRepository extends EntityRepository {
         if ($user_id != null) {
             $qb->where('bo.user = :user_id')
                     ->setParameter('user_id', $user_id);
+        } else {
+             $qb->where("bo.user != ''");
         }
         $books = $qb->getQuery()->getResult();
         return BorrowRepository::setBorrow($this, $books, $user_id);

@@ -11,6 +11,7 @@
             <file>file:/home/gwenole/Documents/AFPA-MediaTeK/src/AppBundle/Entity/Document.php</file>
             <file>file:/home/gwenole/Documents/AFPA-MediaTeK/src/AppBundle/Repository/EventRepository.php</file>
             <file>file:/home/gwenole/Documents/AFPA-MediaTeK/app/config/security.yml</file>
+            <file>file:/home/gwenole/Documents/AFPA-MediaTeK/src/AppBundle/Resources/views/elements/ajax.js.twig</file>
             <file>file:/home/gwenole/Documents/AFPA-MediaTeK/src/AppBundle/Resources/views/elements/eventList.html.twig</file>
         </group>
     </open-files>
