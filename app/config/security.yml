@@ -43,4 +43,5 @@ security:
         - { path: ^/resa/, role: ROLE_USER }
         - { path: ^/borrows, role: ROLE_ADMIN }
         - { path: ^/borrow, role: ROLE_ADMIN }
+        - { path: ^/closeBorrowing, role: ROLE_ADMIN }
 

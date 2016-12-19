@@ -102,4 +102,22 @@ class BorrowController extends Controller {
         return $this->redirectToRoute('borrows');
     }
 
+    /**
+     * @Route("/closeBorrowing/{id}", name="closeBorrowing")
+     */
+    public function closeBorrowingAction($id) {
+        $em = $this->getDoctrine()->getManager();
+
+        $repoBorrow = $em->getRepository('AppBundle:Borrow');
+
+        $borrow = $repoBorrow->findOneBy(array('id' => $id));
+        if (!$borrow) {
+            return $this->redirectToRoute('catalog');
+        }
+        $date = new DateTime();
+        $borrow->setEffectiveReturn($date);
+        $em->persist($borrow);
+        $em->flush();
+        return $this->redirectToRoute('borrows');
+    }
 }
