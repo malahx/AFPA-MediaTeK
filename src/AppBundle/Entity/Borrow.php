@@ -69,9 +69,16 @@ class Borrow
      */
     private $user;
 
+    function __construct(\DateTime $reservation, \AppBundle\Entity\Document $document, \AppBundle\Entity\User $user, \DateTime $borrowing = null, \DateTime $plannedReturn = null, \DateTime $effectiveReturn = null) {
+        $this->borrowing = $borrowing;
+        $this->plannedReturn = $plannedReturn;
+        $this->effectiveReturn = $effectiveReturn;
+        $this->reservation = $reservation;
+        $this->document = $document;
+        $this->user = $user;
+    }
 
-
-    /**
+        /**
      * Set borrowing
      *
      * @param \DateTime $borrowing

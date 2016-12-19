@@ -13,7 +13,7 @@ class BookRepository extends EntityRepository {
                 ->where('d.date > :date')
                 ->setParameter('date', $date);
         $books = $qb->getQuery()->getResult();
-        return BorrowRepository::setBorrow($this, $books);
+        return BorrowRepository::setBorrows($this, $books);
     }
 
     public function findAllBorrowed($user_id = null) {
@@ -27,7 +27,7 @@ class BookRepository extends EntityRepository {
              $qb->where("bo.user != ''");
         }
         $books = $qb->getQuery()->getResult();
-        return BorrowRepository::setBorrow($this, $books, $user_id);
+        return BorrowRepository::setBorrows($this, $books, $user_id);
     }
 
 }

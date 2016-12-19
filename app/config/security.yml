@@ -37,7 +37,10 @@ security:
         - { path: ^/homepage, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/events, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/catalogue, role: ROLE_USER }
+        - { path: ^/document/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/catalog, role: ROLE_USER }
         - { path: ^/myborrows, role: ROLE_USER }
+        - { path: ^/resa/, role: ROLE_USER }
         - { path: ^/borrows, role: ROLE_ADMIN }
+        - { path: ^/borrow, role: ROLE_ADMIN }
 

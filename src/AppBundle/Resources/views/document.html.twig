@@ -1,0 +1,48 @@
+{# document Twig template #}
+{% extends 'AppBundle:elements:base.html.twig' %}
+{% block body %}
+    {% if (borrow) %}
+        {% set dReturn = borrow.effectiveReturn %}
+        {% set dReturn = borrow.effectiveReturn %}
+    {% endif %}
+    {% set color = (borrow == null ? 'green' : (not borrow.borrowing ? 'orange' : 'red')) %}
+    {% set icon = (borrow == null ? 'plus-circle' : (not borrow.borrowing ? 'times-circle' : 'minus-circle')) %}
+    {% set text = (borrow == null ? 'Disponible' : (not borrow.borrowing ? 'Déjà réservé' : 'Déjà emprunté')) %}
+
+    {% set icon_book = (type == 'ce livre' ? 'book' : (type == 'ce disque' ? 'music' : 'comments-o')) %}
+    <main>
+        <div class="flex-parent-col {{ color }}">
+            <img class="flex-child cover center" src="{{ asset('bundles/app/img/' ~ cover) }}" alt="{{ docTitle }}"/>
+            <div class="flex-child flex-parent-col info center">
+                <ul>
+                    <li class="flex-child text bold"><i class="fa fa-{{ icon_book }}" aria-hidden="true"></i> {{ docTitle }}</li>
+                    <li class="flex-child text italic">{{ author }}</li>
+                    <li class="flex-child text ico">
+                        {% if (borrow == null and is_granted("IS_AUTHENTICATED_FULLY")) %}
+                            <a id="borrow" href="{{ path('reservation', {'id': id})}}" class="no-decor"><i class="fa fa-plus-circle" aria-hidden="true"></i> Réserver {{ type }}</a>
+                        {% else %}
+                            <i class="fa fa-{{ icon }} fa-3x" aria-hidden="true"></i>
+                            <p>{{ text }}</p>
+                            {% if (is_granted("ROLE_ADMIN")) %}
+                                {% if borrow %}
+                                    <p>Utilisateur : {{ borrow.user.username }}</p>
+                                    <p>Date de réservation : {{ borrow.reservation|date("d/m/Y") }}</p>
+                                    {% if (borrow.borrowing) %}
+                                        <p>Date d'emprunt : {{ borrow.borrowing|date("d/m/Y") }}</p>
+                                        <p>Date de retour prévu : {{ borrow.plannedReturn|date("d/m/Y") }}</p>
+                                        <a class="button" href="{{ path('borrow', {'id': borrow.id}) }}">Clore l'emprunt</a>
+                                    {% elseif (borrow.reservation) %}
+                                        <a class="button" href="#">Annuler la réservation</a>
+                                        <a class="button" href="{{ path('borrow', {'id': borrow.id}) }}">Valider l'emprunt</a>
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+{% endblock %}

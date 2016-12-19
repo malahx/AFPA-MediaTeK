@@ -123,6 +123,22 @@ body>main li {
     padding: 5px;
     list-style-type: none;
 }
+body>main>div .cover {
+    max-height: 500px;
+}
+body>main>div #borrow {
+    font-weight: bold;
+    padding: 5px;
+    margin: 5px;
+    border: 3px inset white;
+    color: #DFF0D8;
+    background: #3C764F;
+    border-radius: 10px;
+}
+body>main>div #borrow:hover {
+     background: #DFF0D8;
+     color: #3C764F;
+}
 body>main>section>ul#events li {
     background: #EAEAEA;
 }

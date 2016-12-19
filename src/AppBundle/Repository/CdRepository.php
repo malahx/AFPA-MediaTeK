@@ -13,7 +13,7 @@ class CdRepository extends EntityRepository {
                 ->where('d.date > :date')
                 ->setParameter('date', $date);
         $cds = $qb->getQuery()->getResult();
-        return BorrowRepository::setBorrow($this, $cds);
+        return BorrowRepository::setBorrows($this, $cds);
     }
 
     public function findAllBorrowed($user_id = null) {
@@ -27,7 +27,7 @@ class CdRepository extends EntityRepository {
              $qb->where("bo.user != ''");
         }
         $cds = $qb->getQuery()->getResult();
-        return BorrowRepository::setBorrow($this, $cds, $user_id);
+        return BorrowRepository::setBorrows($this, $cds, $user_id);
     }
 
 }
