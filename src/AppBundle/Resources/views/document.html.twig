@@ -1,10 +1,6 @@
 {# document Twig template #}
 {% extends 'AppBundle:elements:base.html.twig' %}
 {% block body %}
-    {% if (borrow) %}
-        {% set dReturn = borrow.effectiveReturn %}
-        {% set dReturn = borrow.effectiveReturn %}
-    {% endif %}
     {% set color = (borrow == null ? 'green' : (not borrow.borrowing ? 'orange' : 'red')) %}
     {% set icon = (borrow == null ? 'plus-circle' : (not borrow.borrowing ? 'times-circle' : 'minus-circle')) %}
     {% set text = (borrow == null ? 'Disponible' : (not borrow.borrowing ? 'Déjà réservé' : 'Déjà emprunté')) %}
@@ -32,7 +28,7 @@
                                         <p>Date de retour prévu : {{ borrow.plannedReturn|date("d/m/Y") }}</p>
                                         <a class="button" href="{{ path('closeBorrowing', {'id': borrow.id}) }}">Clore l'emprunt</a>
                                     {% elseif (borrow.reservation) %}
-                                        <a class="button" href="#">Annuler la réservation</a>
+                                        <a class="button" href="{{ path('closeBorrowing', {'id': borrow.id}) }}">Annuler la réservation</a>
                                         <a class="button" href="{{ path('borrow', {'id': borrow.id}) }}">Valider l'emprunt</a>
                                     {% endif %}
                                 {% endif %}
