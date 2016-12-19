@@ -34,13 +34,6 @@ class Event {
     private $description;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=255, nullable=false)
-     */
-    private $cover;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -125,24 +118,21 @@ class Event {
     }
 
     /**
-     * Get cover
+     * Get day
      *
      * @return string
      */
-    function getCover() {
-        return $this->cover;
+    public function getDay() {
+        return $this->date->format('d F Y');
     }
 
     /**
-     * Set cover
+     * Get hour
      *
-     * @param string $cover
-     *
-     * @return Events
+     * @return string
      */
-    function setCover($cover) {
-        $this->cover = $cover;
-        return $this;
+    public function getHour() {
+        return $this->date->format('H:i');
     }
 
 }

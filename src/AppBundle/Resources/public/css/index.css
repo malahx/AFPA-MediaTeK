@@ -12,6 +12,9 @@
 .no-decor {
     text-decoration: none;
 }
+.underline {
+    text-decoration: underline;
+}
 .link-color-black {
     color: black;
 }
@@ -81,7 +84,7 @@ body {
 body>nav, body>footer {
     background-color: #FFBB10;   
 }
-body>header, body>nav>header, body>nav>section>div, body>nav>footer, body>main>section li.border, body>main>footer {
+body>nav>header, body>nav>section>div, body>nav>footer, body>main>section li.border, body>main>footer {
     border-bottom: 2px solid #E0A10D;
 }
 
@@ -92,6 +95,9 @@ body>header img {
 }
 
 /* NAV*/
+body>nav {
+    border-top: 2px solid #E0A10D;
+}
 body>nav>header .nav {
     width: 50%; 
     cursor: pointer;
@@ -119,6 +125,12 @@ body>main ul {
 body>main li {
     padding: 5px;
     list-style-type: none;
+}
+body>main>section>ul#events li {
+    background: #EAEAEA;
+}
+body>main>section>ul#events li:nth-child(odd) {
+    background: #AAAAAA;
 }
 body>main>section li>a {
     color: inherit;
@@ -212,5 +224,40 @@ body>main>footer>ul>li {
     }
     body>header .flex-parent-col {
         flex-direction: row;
+    }    
+    body>nav>section {
+        font-size: 1em;
+    }
+    body>main>section .flex-parent-col {
+        flex-direction: row;
+    }
+
+    body>main>section div {
+        margin: 5px;
+    }
+    body>main>section .title {
+        width: 20em;
+    }
+    body>main>section .date {
+        width: 11em;
+    }
+
+    body>nav>header {
+        display: none;
+    }
+    body>nav>section .flex-parent-col {
+        display: inline-flex;
+        flex-direction: row;
+    }
+    body>nav>section.hidden {
+        display: inherit;
+    }
+    body>nav>section .flex-child {
+        border-left: 1px solid #75787C;
+        border-right: 1px solid #75787C;
+        padding: 5px;
+    }
+    body {
+
     }
 }

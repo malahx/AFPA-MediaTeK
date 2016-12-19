@@ -64,6 +64,6 @@ class EventsController extends Controller {
 
         $events = $repoEvent->findAllNext();
         
-        return $this->render('AppBundle::eventList.html.twig', array('events' => $events));
+        return $this->render('AppBundle:elements:eventList.html.twig', array('events' => $events));
     }
 }

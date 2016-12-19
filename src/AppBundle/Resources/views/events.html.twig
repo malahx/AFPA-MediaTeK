@@ -11,5 +11,6 @@
     </main>
 {% endblock %}
 {% block javascripts %}
+    {{ parent() }}
     {% include 'AppBundle:elements:ajax.js.twig' %}
 {% endblock %}

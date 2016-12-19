@@ -15,16 +15,16 @@ window.addEventListener('scroll', function (e) {
     }
 });
 
-window.onload = function (e) {
+window.addEventListener('load', function (e) {
     loginModalEl = document.getElementById('loginModal');
     loginModalBtnEl = document.getElementById('loginModalBtn');
     loginModalCloseEl = document.getElementById('loginModalClose');
     mediaEl = document.getElementById('mediatek');
     navSecEl = document.getElementById('navSec');
-    mediaEl.addEventListener('click', function (e) {
+    mediaEl.onclick = function (e) {
         navSecEl.classList.remove('hidden');
         location.hash = "#navSec";
-    });
+    };
     if (loginModalBtnEl !== null) {
         loginModalBtnEl.onclick = function () {
             loginModalEl.style.display = "block";
@@ -38,4 +38,4 @@ window.onload = function (e) {
             }
         };
     }
-};
+});

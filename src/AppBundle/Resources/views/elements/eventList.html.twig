@@ -1,44 +1,11 @@
-{# docList Twig template #}
-<main>
-    <section>
-        <ul id="events">
-            {#{% for book in books %}
-                {% set type = 'book' %}
-                {% set author = book.author %}
-                {% set docTitle = book.document.title %}
-                {% set cover = book.document.cover %}
-                {% set borrow = book.borrow %}
-                {% include 'AppBundle:elements:doc.html.twig' %}
-            {% endfor %}#}
-        </ul>
-    </section>
-    <footer>
-        <!--<ul class="flex-parent-row center">
-            <li class="flex-child">
-                <a class="no-decor color-nextpage" href="#">
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                </a>
-            </li>
-            <li class="flex-child">
-                <a class="no-decor color-nextpage" href="#">
-                    1
-                </a>
-            </li>
-            <li class="flex-child">
-                <a class="no-decor color-nextpage" href="#">
-                    2
-                </a>
-            </li>
-            <li class="flex-child">
-                <a class="no-decor color-nextpage" href="#">
-                    3
-                </a>
-            </li>
-            <li class="flex-child">
-                <a class="no-decor color-nextpage" href="#">
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </a>
-            </li>
-        </ul>-->
-    </footer>
-</main>
+{# eventList Twig template #}
+{% for event in events %}
+    <li class="border">
+        <a class="flex-parent-col no-decor" href="#" title="La peau de chagrin">
+            <div class="title flex-child-center center text bold"><i class="fa fa-calendar-o" aria-hidden="true"></i> {{ event.title }}</div>
+            <div class="date flex-child-center center underline text">le {{ event.day }}&nbsp;</div>
+            <div class="hour flex-child-center center underline text">à {{ event.hour }}</div>
+            <div class="desc flex-child-center text italic">{{ event.description }}</div>
+        </a>
+    </li>
+{% endfor %}
