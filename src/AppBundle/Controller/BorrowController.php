@@ -67,7 +67,7 @@ class BorrowController extends Controller {
 
         $document = $repoDocument->findOneBy(array('id' => $id));
         $borrows = $repoBorrow->findActiveBy($id);
-        if (!$borrows) {
+        if ($borrows) {
             return $this->redirectToRoute('catalog');
         }
 
