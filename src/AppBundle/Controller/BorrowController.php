@@ -7,14 +7,13 @@ use DateInterval;
 use AppBundle\Entity\Borrow;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 
 class BorrowController extends Controller {
 
     /**
      * @Route("/myborrows", name="myborrows")
      */
-    public function myborrowsAction(Request $request) {
+    public function myborrowsAction() {
         $user_id = $this->getUser()->getId();
 
         $em = $this->getDoctrine()->getManager();
@@ -37,7 +36,7 @@ class BorrowController extends Controller {
     /**
      * @Route("/borrows", name="borrows")
      */
-    public function borrowsAction(Request $request) {
+    public function borrowsAction() {
 
         $em = $this->getDoctrine()->getManager();
 
@@ -67,7 +66,9 @@ class BorrowController extends Controller {
 
         $document = $repoDocument->findOneBy(array('id' => $id));
         $borrows = $repoBorrow->findActiveBy($id);
+        
         if ($borrows) {
+            // Retour au catalogue si la réservation existe déjà
             return $this->redirectToRoute('catalog');
         }
 
@@ -77,6 +78,7 @@ class BorrowController extends Controller {
 
         $em->persist($borrow);
         $em->flush();
+        
         return $this->redirectToRoute('myborrows');
     }
 
@@ -89,16 +91,22 @@ class BorrowController extends Controller {
         $repoBorrow = $em->getRepository('AppBundle:Borrow');
 
         $borrow = $repoBorrow->findOneBy(array('id' => $id));
+        
         if (!$borrow) {
+            // Retour au catalogue si aucune réservation n'a été faite
             return $this->redirectToRoute('catalog');
         }
+        
         $date = new DateTime();
         $borrow->setBorrowing($date);
+        
         $date = new DateTime();
         $date->add(new DateInterval('P1M'));
         $borrow->setPlannedReturn($date);
+        
         $em->persist($borrow);
         $em->flush();
+        
         return $this->redirectToRoute('borrows');
     }
 
@@ -111,13 +119,18 @@ class BorrowController extends Controller {
         $repoBorrow = $em->getRepository('AppBundle:Borrow');
 
         $borrow = $repoBorrow->findOneBy(array('id' => $id));
+        
         if (!$borrow) {
+            // Retour au catalogue si il n'y a pas de réservation
             return $this->redirectToRoute('catalog');
         }
+        
         $date = new DateTime();
         $borrow->setEffectiveReturn($date);
+        
         $em->persist($borrow);
         $em->flush();
+        
         return $this->redirectToRoute('borrows');
     }
 }

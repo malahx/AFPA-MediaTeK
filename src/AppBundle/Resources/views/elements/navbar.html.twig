@@ -2,13 +2,13 @@
 <nav class="center">
     <header id="navbar">
         <div class="flex-parent-row">
-            <div class="flex-child nav">
-                <a class="link-color-black" href="http://www.pleyber-christ.fr" title="Accueil">
+            <div id='acc' class="flex-child nav">
+                <a id='accLink' class="link-color-black" href="http://www.pleyber-christ.fr" title="Accueil">
                     <i class="fa fa-home fa-3x" aria-hidden="true"></i>
                 </a>
             </div>
             <div id='mediatek' class="flex-child nav">
-                <a class="link-color-black" title="Médiathèque">
+                <a id="mediatekLink" class="link-color-black" title="Médiathèque">
                     <i class="fa fa-book fa-3x" aria-hidden="true"></i>
                 </a>
             </div>
@@ -16,34 +16,39 @@
     </header>        
     <section id="navSec" class="hidden bold">
         <div class="flex-parent-col">
-
+            <div class="flex-child hidden">
+                <a class="link-color-white no-decor" href="http://www.pleyber-christ.fr">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <span>Accueil</span>
+                </a>
+            </div>
             <div class="flex-child">
-                <a class="link-color-white no-decor" href="{{ path('events') }}">
+                <a class="{% if app.request.get('_route') == 'events' %}link-color-black{% else %}link-color-white{% endif %} no-decor" href="{{ path('events') }}">
                     <i class="fa fa-calendar" aria-hidden="true"></i>
                     <span>Evènements</span>
                 </a>
             </div>
             <div class="flex-child">
-                <a class="link-color-white no-decor" href="#">
+                <a class="{% if app.request.get('_route') == 'info' %}link-color-black{% else %}link-color-white{% endif %} no-decor" href="#">
                     <i class="fa fa-info" aria-hidden="true"></i>
                     <span>Informations</span>
                 </a>
             </div>
             <div class="flex-child">
-                <a class="link-color-white no-decor" href="{{ path('homepage') }}">
+                <a class="{% if app.request.get('_route') == 'homepage' %}link-color-black{% else %}link-color-white{% endif %} no-decor" href="{{ path('homepage') }}">
                     <i class="fa fa-flash" aria-hidden="true"></i>
                     <span>Nouveautés</span>
                 </a>
             </div>
             {% if is_granted("IS_AUTHENTICATED_FULLY") %}
                 <div class="flex-child">
-                    <a class="link-color-white no-decor" href="{{ path('catalog') }}">
+                    <a class="{% if app.request.get('_route') == 'catalog' %}link-color-black{% else %}link-color-white{% endif %} no-decor" href="{{ path('catalog') }}">
                         <i class="fa fa-list" aria-hidden="true"></i>
                         <span>Catalogue</span>
                     </a>
                 </div>
                 <div class="flex-child">
-                    <a class="link-color-white no-decor" href="{{ path('myborrows') }}">
+                    <a class="{% if app.request.get('_route') == 'myborrows' %}link-color-black{% else %}link-color-white{% endif %} no-decor" href="{{ path('myborrows') }}">
                         <i class="fa fa-bookmark" aria-hidden="true"></i>
                         <span>Vos emprunts</span>
                     </a>
@@ -51,7 +56,7 @@
             {% endif %}
             {% if is_granted("ROLE_ADMIN") %}
                 <div class="flex-child">
-                    <a class="link-color-white no-decor" href="{{ path('borrows') }}">
+                    <a class="{% if app.request.get('_route') == 'borrows' %}link-color-black{% else %}link-color-white{% endif %} no-decor" href="{{ path('borrows') }}">
                         <i class="fa fa-lock" aria-hidden="true"></i>
                         <span>Tous les Emprunts</span>
                     </a>
@@ -72,7 +77,6 @@
                     </a>
                 </div>
             {% else %}
-
                 <div class="flex-child">
                     <a class="link-color-white no-decor" href="{{ path('fos_user_security_logout') }}">
                         <i class="fa fa-sign-out" aria-hidden="true"></i>

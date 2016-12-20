@@ -4,18 +4,17 @@ namespace AppBundle\Controller;
 
 use DateTime;
 use DateInterval;
-use AppBundle\Entity\Borrow;
 use AppBundle\Repository\BorrowRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller {
 
     /**
      * @Route("/", name="homepage")
      */
-    public function newsAction(Request $request) {
+    public function newsAction() {
+        
         $date = new DateTime();
         $date->sub(new DateInterval('P1M'));
 
@@ -39,7 +38,8 @@ class DefaultController extends Controller {
     /**
      * @Route("/catalog", name="catalog")
      */
-    public function catalogAction(Request $request) {
+    public function catalogAction() {
+        
         $em = $this->getDoctrine()->getManager();
 
         $repoBook = $em->getRepository('AppBundle:Book');
