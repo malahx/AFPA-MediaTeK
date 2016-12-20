@@ -5,6 +5,40 @@
 .hidden {
     display: none;
 }
+.button {
+    font-weight: bold;
+    padding: 5px;
+    margin: 5px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+.valid {
+    color: #DFF0D8;
+    background: #3C764F;
+}
+.valid:hover {
+    background: #DFF0D8;
+    color: #3C764F;
+    border-color: #3C764F;
+}
+.warning {
+    color: #FCF8E3;
+    background: #9C6D3B;
+}
+.warning:hover {
+    background: #FCF8E3;
+    color: #9C6D3B;
+    border-color: #9C6D3B;
+}
+.alert {
+    color: #F2DEDE;
+    background: #A94442;
+}
+.alert:hover {
+    background: #F2DEDE;
+    color: #A94442;
+    border-color: #A94442;
+}
 .right {
     display: inline-block;
     float: right;
@@ -120,19 +154,6 @@ body>main li {
 }
 body>main>div .cover {
     max-height: 500px;
-}
-body>main>div #borrow {
-    font-weight: bold;
-    padding: 5px;
-    margin: 5px;
-    border: 3px inset white;
-    color: #DFF0D8;
-    background: #3C764F;
-    border-radius: 10px;
-}
-body>main>div #borrow:hover {
-    background: #DFF0D8;
-    color: #3C764F;
 }
 body>main ul {
     padding: 0;
@@ -306,6 +327,9 @@ body>footer {
     }
     body>main>section .date {
         width: 11em;
+    }
+    body>main>div.document {
+        padding: 2em;
     }
     body>main {
         min-height:100%;
