@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use DateTime;
 use DateInterval;
+use AppBundle\Entity\Borrow;
 use AppBundle\Repository\BorrowRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -36,18 +37,18 @@ class DefaultController extends Controller {
     }
 
     /**
-     * @Route("/catalogue", name="catalogue")
+     * @Route("/catalog", name="catalog")
      */
-    public function catalogueAction(Request $request) {
+    public function catalogAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
 
         $repoBook = $em->getRepository('AppBundle:Book');
         $repoCd = $em->getRepository('AppBundle:Cd');
         $repoComic = $em->getRepository('AppBundle:Comic');
 
-        $books = BorrowRepository::setBorrow($repoBook, $repoBook->findAll());
-        $cds = BorrowRepository::setBorrow($repoCd, $repoCd->findAll());
-        $comics = BorrowRepository::setBorrow($repoComic, $repoComic->findAll());
+        $books = BorrowRepository::setBorrows($repoBook, $repoBook->findAll());
+        $cds = BorrowRepository::setBorrows($repoCd, $repoCd->findAll());
+        $comics = BorrowRepository::setBorrows($repoComic, $repoComic->findAll());
 
         return $this->render('AppBundle::home.html.twig', array(
                     'title' => 'Catalogue',
@@ -57,26 +58,48 @@ class DefaultController extends Controller {
     }
 
     /**
-     * @Route("/emprunts", name="emprunts")
+     * @Route("/document/{id}", name="document")
      */
-    public function empruntsAction(Request $request) {
-        $user_id = $this->getUser()->getId();
+    public function documentAction($id) {
 
         $em = $this->getDoctrine()->getManager();
 
         $repoBook = $em->getRepository('AppBundle:Book');
         $repoCd = $em->getRepository('AppBundle:Cd');
         $repoComic = $em->getRepository('AppBundle:Comic');
+        $repoBorrow = $em->getRepository('AppBundle:Borrow');
 
-        $books = $repoBook->findAllBorrowedBy($user_id);
-        $cds = $repoCd->findAllBorrowedBy($user_id);
-        $comics = $repoComic->findAllBorrowedBy($user_id);
+        $book = $repoBook->findOneBy(array('document' => $id));
+        $cd = $repoCd->findOneBy(array('document' => $id));
+        $comic = $repoComic->findOneBy(array('document' => $id));
+        $borrow = $repoBorrow->findActiveBy($id);
 
-        return $this->render('AppBundle::home.html.twig', array(
-                    'title' => 'Vos Emprunts',
-                    'books' => $books,
-                    'cds' => $cds,
-                    'comics' => $comics));
+        if ($borrow) {
+            $borrow = $borrow[0];
+        }
+
+        if ($book) {
+            $document = $book;
+            $author = $document->getAuthor();
+            $type = 'ce livre';
+        } elseif ($cd) {
+            $document = $cd;
+            $author = $document->getComposer();
+            $type = 'ce disque';
+        } else {
+            $document = $comic;
+            $author = $document->getCartoonist();
+            $type = 'cette bande déssiné';
+        }
+
+        return $this->render('AppBundle::document.html.twig', array(
+                    'title' => 'Document',
+                    'docTitle' => $document->getDocument()->getTitle(),
+                    'author' => $author,
+                    'borrow' => $borrow,
+                    'cover' => $document->getDocument()->getCover(),
+                    'type' => $type,
+                    'id' => $document->getDocument()->getId()));
     }
 
 }

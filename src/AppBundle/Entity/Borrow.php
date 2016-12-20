@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="borrow", indexes={@ORM\Index(name="user_id", columns={"user_id", "document_id"}), @ORM\Index(name="FK_55DBA8B0C33F7837", columns={"document_id"}), @ORM\Index(name="IDX_55DBA8B0A76ED395", columns={"user_id"})})
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BorrowRepository")
  */
-class Borrow
-{
+class Borrow {
+
     /**
      * @var \DateTime
      *
@@ -69,7 +69,14 @@ class Borrow
      */
     private $user;
 
-
+    function __construct(\DateTime $reservation, \AppBundle\Entity\Document $document, \AppBundle\Entity\User $user, \DateTime $borrowing = null, \DateTime $plannedReturn = null, \DateTime $effectiveReturn = null) {
+        $this->borrowing = $borrowing;
+        $this->plannedReturn = $plannedReturn;
+        $this->effectiveReturn = $effectiveReturn;
+        $this->reservation = $reservation;
+        $this->document = $document;
+        $this->user = $user;
+    }
 
     /**
      * Set borrowing
@@ -78,8 +85,7 @@ class Borrow
      *
      * @return Borrow
      */
-    public function setBorrowing($borrowing)
-    {
+    public function setBorrowing($borrowing) {
         $this->borrowing = $borrowing;
 
         return $this;
@@ -90,8 +96,7 @@ class Borrow
      *
      * @return \DateTime
      */
-    public function getBorrowing()
-    {
+    public function getBorrowing() {
         return $this->borrowing;
     }
 
@@ -102,8 +107,7 @@ class Borrow
      *
      * @return Borrow
      */
-    public function setPlannedReturn($plannedReturn)
-    {
+    public function setPlannedReturn($plannedReturn) {
         $this->plannedReturn = $plannedReturn;
 
         return $this;
@@ -114,8 +118,7 @@ class Borrow
      *
      * @return \DateTime
      */
-    public function getPlannedReturn()
-    {
+    public function getPlannedReturn() {
         return $this->plannedReturn;
     }
 
@@ -126,8 +129,7 @@ class Borrow
      *
      * @return Borrow
      */
-    public function setEffectiveReturn($effectiveReturn)
-    {
+    public function setEffectiveReturn($effectiveReturn) {
         $this->effectiveReturn = $effectiveReturn;
 
         return $this;
@@ -138,8 +140,7 @@ class Borrow
      *
      * @return \DateTime
      */
-    public function getEffectiveReturn()
-    {
+    public function getEffectiveReturn() {
         return $this->effectiveReturn;
     }
 
@@ -150,8 +151,7 @@ class Borrow
      *
      * @return Borrow
      */
-    public function setReservation($reservation)
-    {
+    public function setReservation($reservation) {
         $this->reservation = $reservation;
 
         return $this;
@@ -162,8 +162,7 @@ class Borrow
      *
      * @return \DateTime
      */
-    public function getReservation()
-    {
+    public function getReservation() {
         return $this->reservation;
     }
 
@@ -172,8 +171,7 @@ class Borrow
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -184,8 +182,7 @@ class Borrow
      *
      * @return Borrow
      */
-    public function setDocument(\AppBundle\Entity\Document $document = null)
-    {
+    public function setDocument(\AppBundle\Entity\Document $document = null) {
         $this->document = $document;
 
         return $this;
@@ -196,8 +193,7 @@ class Borrow
      *
      * @return \AppBundle\Entity\Document
      */
-    public function getDocument()
-    {
+    public function getDocument() {
         return $this->document;
     }
 
@@ -208,8 +204,7 @@ class Borrow
      *
      * @return Borrow
      */
-    public function setUser(\AppBundle\Entity\User $user = null)
-    {
+    public function setUser(\AppBundle\Entity\User $user = null) {
         $this->user = $user;
 
         return $this;
@@ -220,8 +215,34 @@ class Borrow
      *
      * @return \AppBundle\Entity\User
      */
-    public function getUser()
-    {
+    public function getUser() {
         return $this->user;
+    }
+
+    /**
+     * Get isCancelled
+     *
+     * @return bool
+     */
+    public function isCancelled() {
+        return $this->reservation != null && $this->borrowing == null && $this->plannedReturn == null && $this->effectiveReturn != null;
+    }
+
+    /**
+     * Get isReserved
+     *
+     * @return bool
+     */
+    public function isReserved() {
+        return $this->reservation != null && $this->borrowing == null && $this->plannedReturn == null && $this->effectiveReturn == null;
+    }
+    
+    /**
+     * Get isBorrowed
+     *
+     * @return bool
+     */
+    public function isBorrowed() {
+        return $this->reservation != null && $this->borrowing != null && $this->effectiveReturn == null;
     }
 }

@@ -16,62 +16,9 @@
     </header>        
     <section id="navSec" class="hidden bold">
         <div class="flex-parent-col">
-            {% if not is_granted("IS_AUTHENTICATED_FULLY") %}
-                <div id="loginModalBtn" class="flex-child">
-                    <a class="link-color-white no-decor">
-                        <i class="fa fa-sign-in" aria-hidden="true"></i>
-                        <span>Se connecter</span>
-                    </a>
-                </div>
-                <div class="flex-child">
-                    <a class="link-color-white no-decor" href="#">
-                        <i class="fa fa-sign-out" aria-hidden="true"></i>
-                        <span>S'enregistrer</span>
-                    </a>
-                </div>
-            {% endif %}
+
             <div class="flex-child">
-                <a class="link-color-white no-decor" href="{{ path('homepage') }}">
-                    <i class="fa fa-flash" aria-hidden="true"></i>
-                    <span>Nouveautés</span>
-                </a>
-            </div>
-            {% if is_granted("IS_AUTHENTICATED_FULLY") %}
-                <div class="flex-child">
-                    <a class="link-color-white no-decor" href="{{ path('catalogue') }}">
-                        <i class="fa fa-list" aria-hidden="true"></i>
-                        <span>Catalogue</span>
-                    </a>
-                </div>
-                <div class="flex-child">
-                    <a class="link-color-white no-decor" href="{{ path('emprunts') }}">
-                        <i class="fa fa-bookmark" aria-hidden="true"></i>
-                        <span>Vos emprunts</span>
-                    </a>
-                </div>
-                <div class="flex-child">
-                    <a class="link-color-white no-decor" href="#">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        <span>Compte</span>
-                    </a>
-                </div>
-                <div class="flex-child">
-                    <a class="link-color-white no-decor" href="{{ path('fos_user_security_logout') }}">
-                        <i class="fa fa-sign-out" aria-hidden="true"></i>
-                        <span>Déconnection</span>
-                    </a>
-                </div>
-            {% endif %}
-            {% if is_granted("ROLE_ADMIN") %}
-                <div class="flex-child">
-                    <a class="link-color-white no-decor" href="#">
-                        <i class="fa fa-lock" aria-hidden="true"></i>
-                        <span>Administrateur</span>
-                    </a>
-                </div>
-            {% endif %}
-            <div class="flex-child">
-                <a class="link-color-white no-decor" href="#">
+                <a class="link-color-white no-decor" href="{{ path('events') }}">
                     <i class="fa fa-calendar" aria-hidden="true"></i>
                     <span>Evènements</span>
                 </a>
@@ -82,6 +29,57 @@
                     <span>Informations</span>
                 </a>
             </div>
+            <div class="flex-child">
+                <a class="link-color-white no-decor" href="{{ path('homepage') }}">
+                    <i class="fa fa-flash" aria-hidden="true"></i>
+                    <span>Nouveautés</span>
+                </a>
+            </div>
+            {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                <div class="flex-child">
+                    <a class="link-color-white no-decor" href="{{ path('catalog') }}">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        <span>Catalogue</span>
+                    </a>
+                </div>
+                <div class="flex-child">
+                    <a class="link-color-white no-decor" href="{{ path('myborrows') }}">
+                        <i class="fa fa-bookmark" aria-hidden="true"></i>
+                        <span>Vos emprunts</span>
+                    </a>
+                </div>
+            {% endif %}
+            {% if is_granted("ROLE_ADMIN") %}
+                <div class="flex-child">
+                    <a class="link-color-white no-decor" href="{{ path('borrows') }}">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <span>Tous les Emprunts</span>
+                    </a>
+                </div>
+            {% endif %}
+
+            {% if not is_granted("IS_AUTHENTICATED_FULLY") %}
+                <div id="loginModalBtn" class="flex-child">
+                    <a class="link-color-white no-decor">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        <span>Se connecter</span>
+                    </a>
+                </div>
+                <div class="flex-child">
+                    <a class="link-color-white no-decor" href="{{ path('fos_user_registration_register') }}">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <span>S'enregistrer</span>
+                    </a>
+                </div>
+            {% else %}
+
+                <div class="flex-child">
+                    <a class="link-color-white no-decor" href="{{ path('fos_user_security_logout') }}">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <span>Déconnection</span>
+                    </a>
+                </div>
+            {% endif %}
         </div>
     </section>
     <footer id="title">

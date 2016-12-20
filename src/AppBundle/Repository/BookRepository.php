@@ -13,17 +13,22 @@ class BookRepository extends EntityRepository {
                 ->where('d.date > :date')
                 ->setParameter('date', $date);
         $books = $qb->getQuery()->getResult();
-        return BorrowRepository::setBorrow($this, $books);
+        return BorrowRepository::setBorrows($this, $books);
     }
 
-    public function findAllBorrowedBy($user_id) {
+    public function findAllBorrowed($user_id = null) {
         $qb = $this->createQueryBuilder('b')
                 ->join('b.document', 'd')
                 ->leftJoin('AppBundle\Entity\Borrow', 'bo', Join::WITH, 'bo.document = d')
-                ->where('bo.user = :user_id')
-                ->setParameter('user_id', $user_id);
+                ->where('bo.effectiveReturn IS NULL');
+        if ($user_id != null) {
+            $qb->andWhere('bo.user = :user_id')
+                    ->setParameter('user_id', $user_id);
+        } else {
+             $qb->andWhere("bo.user != ''");
+        }
         $books = $qb->getQuery()->getResult();
-        return BorrowRepository::setBorrow($this, $books, $user_id);
+        return BorrowRepository::setBorrows($this, $books, $user_id);
     }
 
 }

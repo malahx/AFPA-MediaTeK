@@ -13,17 +13,22 @@ class ComicRepository extends EntityRepository {
                 ->where('d.date > :date')
                 ->setParameter('date', $date);
         $comics = $qb->getQuery()->getResult();
-        return BorrowRepository::setBorrow($this, $comics);
+        return BorrowRepository::setBorrows($this, $comics);
     }
 
-    public function findAllBorrowedBy($user_id) {
+    public function findAllBorrowed($user_id = null) {
         $qb = $this->createQueryBuilder('b')
                 ->join('b.document', 'd')
                 ->leftJoin('AppBundle\Entity\Borrow', 'bo', Join::WITH, 'bo.document = d')
-                ->where('bo.user = :user_id')
-                ->setParameter('user_id', $user_id);
+                ->where('bo.effectiveReturn IS NULL'); 
+        if ($user_id != null) {
+            $qb->andWhere('bo.user = :user_id')
+                    ->setParameter('user_id', $user_id);
+        } else {
+             $qb->andWhere("bo.user != ''");
+        }
         $comics = $qb->getQuery()->getResult();
-        return BorrowRepository::setBorrow($this, $comics, $user_id);
+        return BorrowRepository::setBorrows($this, $comics, $user_id);
     }
 
 }

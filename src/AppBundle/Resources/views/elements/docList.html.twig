@@ -1,13 +1,14 @@
 {# docList Twig template #}
 <main>
     <section>
-        <ul>
+        <ul class="flex-parent-col">
             {% set type = 'book' %}
             {% for book in books %}
                 {% set author = book.author %}
                 {% set docTitle = book.document.title %}
                 {% set cover = book.document.cover %}
                 {% set borrow = book.borrow %}
+                {% set id = book.document.id %}
                 {% include 'AppBundle:elements:doc.html.twig' %}
             {% endfor %}
             {% set type = 'music' %}
@@ -16,6 +17,7 @@
                 {% set docTitle = cd.document.title %}
                 {% set cover = cd.document.cover %}
                 {% set borrow = cd.borrow %}
+                {% set id = cd.document.id %}
                 {% include 'AppBundle:elements:doc.html.twig' %}
             {% endfor %}
             {% set type = 'comments-o' %}
@@ -24,6 +26,7 @@
                 {% set docTitle = comic.document.title %}
                 {% set cover = comic.document.cover %}
                 {% set borrow = comic.borrow %}
+                {% set id = comic.document.id %}
                 {% include 'AppBundle:elements:doc.html.twig' %}
             {% endfor %}
         </ul>

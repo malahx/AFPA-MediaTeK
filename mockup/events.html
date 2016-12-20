@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Médiathèque / Pleyber Christ</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="asset/css/index.css"/>
+        <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">-->
+        <link rel="stylesheet" href="asset/css/fawesome/css/font-awesome.min.css" />
+        <script type="text/javascript" src="asset/js/browsing.js"></script>
+    </head>
+    <body>
+        <header class="center">
+            <a class="flex-parent-col center" href="http://www.pleyber-christ.fr">
+                <img class="flex-child" src="asset/img/logo.png" alt="logo"/>
+                <img class="flex-child mobile-hidden" src="asset/img/pre-mairie.png" alt="Mairie0"/>
+                <img class="flex-child" src="asset/img/mairie.png" alt="Mairie1"/>
+            </a>
+        </header>
+        <nav class="center">
+            <header id="navbar">
+                <div class="flex-parent-row">
+                    <div class="flex-child nav">
+                        <a class="color-nav" href="http://www.pleyber-christ.fr" title="Accueil">
+                            <i class="fa fa-home fa-3x" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="flex-child nav">
+                        <a class="color-nav" href="#" title="Médiathèque">
+                            <i class="fa fa-book fa-3x" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+            <section id="navSec" class="hidden bold">
+				<div class="flex-parent-col">
+					<div class="flex-child hidden">
+						<a class="link-color-white no-decor">
+							<i class="fa fa-home" aria-hidden="true"></i>
+							<span>Accueil</span>
+						</a>
+					</div>
+					<div id="loginModalBtn" class="flex-child">
+						<a class="link-color-white no-decor">
+							<i class="fa fa-sign-in" aria-hidden="true"></i>
+							<span>Se connecter</span>
+						</a>
+					</div>
+					<div class="flex-child">
+						<a class="link-color-white no-decor" href="#">
+							<i class="fa fa-sign-out" aria-hidden="true"></i>
+							<span>S'enregistrer</span>
+						</a>
+					</div>
+					<div class="flex-child">
+						<a class="link-color-white no-decor" href="{{ path('homepage') }}">
+							<i class="fa fa-flash" aria-hidden="true"></i>
+							<span>Nouveautés</span>
+						</a>
+					</div>
+					<div class="flex-child">
+						<a class="link-color-white no-decor" href="#">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+							<span>Evènements</span>
+						</a>
+					</div>
+					<div class="flex-child">
+						<a class="link-color-white no-decor" href="#">
+							<i class="fa fa-info" aria-hidden="true"></i>
+							<span>Informations</span>
+						</a>
+					</div>
+				</div>
+			</section>
+            <footer id="title">
+                <div class="bold">
+                    Evènements
+                    <div id="return" class="hidden">
+                        <a class="color-nextpage" href="#top">
+                            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </nav>
+        <main>
+            <section id="events">
+                <ul>
+                    <li class="border">
+                        <a class="flex-parent-col no-decor" href="#" title="La peau de chagrin">
+                            <div class="title flex-child-center center text bold"><i class="fa fa-calendar-o" aria-hidden="true"></i> 1, 2, 3, soleil !</div>
+                            <div class="date flex-child-center center underline text">le 23 Décembre 2016&nbsp;</div>
+                            <div class="hour flex-child-center center underline text">à 21h00</div>
+							<div class="desc flex-child-center text italic">Les jeux de la ludothèque sur le thème « Frontières »</div>
+                        </a>
+                    </li>
+                    <li class="border">
+						<a class="flex-parent-col no-decor" href="#" title="La peau de chagrin">
+                            <div class="title flex-child-center center text bold"><i class="fa fa-calendar-o" aria-hidden="true"></i> Cinémiam : Azur et Asmar</div>
+                            <div class="date flex-child-center center underline text">le 23 Décembre 2016&nbsp;</div>
+                            <div class="hour flex-child-center center underline text">à 21h00</div>
+							<div class="desc flex-child-center text italic">Cinémiam : 1 dessin animé +1 goûter = 1 séance à croquer !</div>
+                        </a>
+                    </li>
+                    <li class="border">
+                        <a class="flex-parent-col no-decor" href="#" title="La peau de chagrin">
+                            <div class="title flex-child-center center text bold"><i class="fa fa-calendar-o" aria-hidden="true"></i> Découverte des tablettes numériques / Niveau débutant</div>
+                            <div class="date flex-child-center center underline text">le 23 Décembre 2016&nbsp;</div>
+                            <div class="hour flex-child-center center underline text">à 21h00</div>
+							<div class="desc flex-child-center text italic">Atelier de découverte des tablettes tactiles niveau débutant </div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <footer>
+                <ul class="flex-parent-row center">
+                    <li class="flex-child">
+                        <a class="no-decor color-nextpage" href="#">
+                            <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="flex-child">
+                        <a class="no-decor color-nextpage" href="#">
+                            1
+                        </a>
+                    </li>
+                    <li class="flex-child">
+                        <a class="no-decor color-nextpage" href="#">
+                            2
+                        </a>
+                    </li>
+                    <li class="flex-child">
+                        <a class="no-decor color-nextpage" href="#">
+                            3
+                        </a>
+                    </li>
+                    <li class="flex-child">
+                        <a class="no-decor color-nextpage" href="#">
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </footer>
+        </main>
+        <footer class="center">
+            <a class="no-decor color-nav" href="index.html">
+                Médiathèque de Pleyber-Christ<br/>
+                Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2016<br/>
+            </a>
+            <a class="no-decor color-nav" href="https://malahx.github.io/">
+                Gwénolé LE HENAFF
+            </a>            
+        </footer>
+    </body>
+</html>

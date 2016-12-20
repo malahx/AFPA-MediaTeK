@@ -8,10 +8,10 @@ use Doctrine\ORM\Mapping as ORM;
  * Events
  *
  * @ORM\Table(name="event")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\EventRepository")
  */
-class Event
-{
+class Event {
+
     /**
      * @var \DateTime
      *
@@ -42,8 +42,6 @@ class Event
      */
     private $id;
 
-
-
     /**
      * Set date
      *
@@ -51,8 +49,7 @@ class Event
      *
      * @return Events
      */
-    public function setDate($date)
-    {
+    public function setDate($date) {
         $this->date = $date;
 
         return $this;
@@ -63,8 +60,7 @@ class Event
      *
      * @return \DateTime
      */
-    public function getDate()
-    {
+    public function getDate() {
         return $this->date;
     }
 
@@ -75,8 +71,7 @@ class Event
      *
      * @return Events
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
 
         return $this;
@@ -87,8 +82,7 @@ class Event
      *
      * @return string
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
@@ -99,8 +93,7 @@ class Event
      *
      * @return Events
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
         $this->description = $description;
 
         return $this;
@@ -111,8 +104,7 @@ class Event
      *
      * @return string
      */
-    public function getDescription()
-    {
+    public function getDescription() {
         return $this->description;
     }
 
@@ -121,8 +113,26 @@ class Event
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
+
+    /**
+     * Get day
+     *
+     * @return string
+     */
+    public function getDay() {
+        return $this->date->format('d F Y');
+    }
+
+    /**
+     * Get hour
+     *
+     * @return string
+     */
+    public function getHour() {
+        return $this->date->format('H:i');
+    }
+
 }
