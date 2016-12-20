@@ -9,6 +9,7 @@
                 {% set cover = book.document.cover %}
                 {% set borrow = book.borrow %}
                 {% set id = book.document.id %}
+                {% set date = book.document.date %}
                 {% include 'AppBundle:elements:doc.html.twig' %}
             {% endfor %}
             {% set type = 'music' %}
@@ -18,6 +19,7 @@
                 {% set cover = cd.document.cover %}
                 {% set borrow = cd.borrow %}
                 {% set id = cd.document.id %}
+                {% set date = cd.document.date %}
                 {% include 'AppBundle:elements:doc.html.twig' %}
             {% endfor %}
             {% set type = 'comments-o' %}
@@ -27,6 +29,7 @@
                 {% set cover = comic.document.cover %}
                 {% set borrow = comic.borrow %}
                 {% set id = comic.document.id %}
+                {% set date = comic.document.date %}
                 {% include 'AppBundle:elements:doc.html.twig' %}
             {% endfor %}
         </ul>

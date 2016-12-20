@@ -37,9 +37,9 @@ window.addEventListener('load', function (e) {
     
     // Lors du clique sur le bouton de la médiathèque (mobile)
     mediaEl.onclick = function (e) {
-        navSecEl.classList.remove('hidden');
-        mediaLinkEl.classList.remove('link-color-black');
-        mediaLinkEl.classList.add('link-color-white');
+        navSecEl.classList.toggle('hidden');
+        mediaLinkEl.classList.toggle('link-color-black');
+        mediaLinkEl.classList.toggle('link-color-white');
         location.hash = "#navSec";
     };
     

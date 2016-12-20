@@ -91,7 +91,7 @@ class DefaultController extends Controller {
         } else {
             $document = $comic;
             $author = $document->getCartoonist();
-            $type = 'cette bande déssiné';
+            $type = 'ce comic';
             $date = $document->getDate()->format('d/m/Y');
         }
 

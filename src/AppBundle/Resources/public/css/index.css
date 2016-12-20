@@ -83,10 +83,12 @@
 .flex-parent-row {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }
 .flex-child {
-    align-items: flex-start;
-    align-self: center;
+    flex-grow: 1;
+    margin: auto;
 }
 .fixed {
     position: fixed;
@@ -170,7 +172,7 @@ body>main>section li>a {
     color: inherit;
 }
 body>main>section li>a .cover {
-    width: 39%;
+    max-width: 39%;
     max-height: 200px;
 }
 body>main>section li>a .info {
@@ -306,18 +308,12 @@ body>footer {
         flex-wrap: wrap;
     }
     body>main>section>ul>li.doc { 
-        height: 100%;
-        min-height: 225px;
+        margin: 1em;
+        width: 350px;
+        border: 2px solid #E0A10D;
     }
     body>main>section li.doc>a {
         margin: 1em;
-    }
-    body>main>section li.doc {
-        margin: 1em;
-        width: 400px;
-    }
-    body>main>section li.doc {
-        border: 2px solid #E0A10D;
     }
     body>main>section div {
         margin: 5px;
