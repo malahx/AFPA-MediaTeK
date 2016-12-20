@@ -19,8 +19,7 @@ class BorrowRepository extends EntityRepository {
         foreach ($docs as $doc) {
             foreach ($borrows as $borrow) {
                 if ($borrow->getDocument() == $doc->getDocument()) {
-                    // reserved: 1; borrow: 2, returned: 3, default = null
-                    $doc->setBorrow($borrow->getEffectiveReturn() ? 3 : $borrow->getBorrowing() ? 2 : 1);
+                    $doc->setBorrow($borrow);
                     break;
                 }
             }
@@ -38,8 +37,7 @@ class BorrowRepository extends EntityRepository {
         $borrows = $repoBorrow->findActiveBy($doc->getDocument()->getId());
         
         if ($borrows) {
-            // reserved: 1; borrow: 2, returned: 3, default = null
-            $doc->setBorrow($borrows[0]->getEffectiveReturn() ? 3 : $borrows[0]->getBorrowing() ? 2 : 1);
+            $doc->setBorrow($borrows[0]);
         }
         
         return $doc;
