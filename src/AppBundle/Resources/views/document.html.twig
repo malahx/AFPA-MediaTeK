@@ -20,7 +20,8 @@
             <div class="document flex-child flex-parent-col info center">
                 <ul>
                     <li class="flex-child text bold"><i class="fa fa-{{ icon_book }}" aria-hidden="true"></i> {{ docTitle }}</li>
-                    <li class="flex-child text italic">{{ author }}</li><br/>
+                    <li class="flex-child text italic">{{ author }}</li>
+                    <li class="flex-child text">Date : {{ date }}</li><br/>
                     <li class="flex-child text ico">
                         {% if (borrow == null and is_granted("IS_AUTHENTICATED_FULLY")) %}
                             <a id="borrow" class="button no-decor valid" href="{{ path('resa', {'id': id})}}" class="no-decor"><i class="fa fa-plus-circle" aria-hidden="true"></i> Réserver {{ type }}</a>

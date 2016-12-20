@@ -82,14 +82,17 @@ class DefaultController extends Controller {
             $document = $book;
             $author = $document->getAuthor();
             $type = 'ce livre';
+            $date = $document->getYear();
         } elseif ($cd) {
             $document = $cd;
             $author = $document->getComposer();
             $type = 'ce disque';
+            $date = $document->getYear();
         } else {
             $document = $comic;
             $author = $document->getCartoonist();
             $type = 'cette bande déssiné';
+            $date = $document->getDate()->format('d/m/Y');
         }
 
         return $this->render('AppBundle::document.html.twig', array(
@@ -99,6 +102,7 @@ class DefaultController extends Controller {
                     'borrow' => $borrow,
                     'cover' => $document->getDocument()->getCover(),
                     'type' => $type,
+                    'date' => $date,
                     'id' => $document->getDocument()->getId()));
     }
 
