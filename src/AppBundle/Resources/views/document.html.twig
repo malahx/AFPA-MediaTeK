@@ -3,7 +3,15 @@
 {% block body %}
     {% set color = (borrow == null ? 'green' : (not borrow.borrowing ? 'orange' : 'red')) %}
     {% set icon = (borrow == null ? 'plus-circle' : (not borrow.borrowing ? 'times-circle' : 'minus-circle')) %}
-    {% set text = (borrow == null ? 'Disponible' : (not borrow.borrowing ? 'Déjà réservé' : 'Déjà emprunté')) %}
+    {% set text = (borrow == null ? 
+        'Disponible' : 
+        (app.user == borrow.user ?
+            (not borrow.borrowing ? 
+                ('Vous avez réservé ' ~ type)|upper : 
+                ('Vous avez emprunté ' ~ type)|upper) :
+            (not borrow.borrowing ? 
+                (type ~ ' est déjà réservé')|upper : 
+                (type ~ ' est déjà emprunté')|upper))) %}
 
     {% set icon_book = (type == 'ce livre' ? 'book' : (type == 'ce disque' ? 'music' : 'comments-o')) %}
     <main>
