@@ -200,17 +200,22 @@ body>footer {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    border: 1px solid #888;
+    margin: 5% auto; /* 15% from the top and centered */
     width: 80%; /* Could be more or less, depending on screen size */
 }
-
+.modal-content input {
+    width: 100%;
+}
 .modal-info {
     display: block;
     color: white;
     background-color: #FFBB10;
     padding: 0.01em 16px;
-    margin: 0;
+    min-height: 2.5em;
+}
+.modal-info button {
+    float: right;
+    margin: 0.4em;
 }
 
 .close {
@@ -307,5 +312,7 @@ body>footer {
     }
     body>footer {
     }
-
+    .modal-content {
+        width: 50%;
+    }
 }
