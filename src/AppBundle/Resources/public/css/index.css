@@ -155,6 +155,7 @@ body>main li {
     list-style-type: none;
 }
 body>main>div .cover {
+    max-width: 100%;
     max-height: 500px;
 }
 body>main ul {
@@ -257,6 +258,9 @@ body>footer {
 /* MEDIA QUERIES */
 
 @media screen and (min-width: 800px) {
+    .mobile-hidden {
+        display: inherit;
+    }
     html {
         position: relative;
         min-height: 100%;
@@ -264,23 +268,16 @@ body>footer {
     body  {
         margin: 0 0 4em; /* bottom = footer height */
     }
-    body>footer {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 4em;
-    }
-    .mobile-hidden {
-        display: inherit;
+    body img.flex-child {
+        flex-grow: 0;
     }
     body>header {
-        margin-left: 15em;
-        margin-right: 15em;
+        max-width: 768px;
+        margin: auto;
     }
     body>header img {
         width: inherit;
-        height: inherit;
+        max-height: 130px;
     }
     body>header .flex-parent-col {
         flex-direction: row;
@@ -331,6 +328,11 @@ body>footer {
         min-height:100%;
     }
     body>footer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 4em;
     }
     .modal-content {
         width: 50%;

@@ -3,15 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/gwenole/Documents/AFPA-MediaTeK/src/AppBundle/Resources/views/elements/navbar.html.twig</file>
+            <file>file:/home/gwenole/Documents/AFPA-MediaTeK/src/AppBundle/Resources/views/elements/docList.html.twig</file>
             <file>file:/home/gwenole/Documents/AFPA-MediaTeK/src/AppBundle/Entity/Borrow.php</file>
-            <file>file:/home/gwenole/Documents/AFPA-MediaTeK/src/AppBundle/Repository/CdRepository.php</file>
-            <file>file:/home/gwenole/Documents/AFPA-MediaTeK/src/AppBundle/Repository/BorrowRepository.php</file>
-            <file>file:/home/gwenole/Documents/AFPA-MediaTeK/src/AppBundle/Resources/views/document.html.twig</file>
-            <file>file:/home/gwenole/Documents/AFPA-MediaTeK/src/AppBundle/Repository/ComicRepository.php</file>
-            <file>file:/home/gwenole/Documents/AFPA-MediaTeK/app/config/security.yml</file>
-            <file>file:/home/gwenole/Documents/AFPA-MediaTeK/src/AppBundle/Controller/DefaultController.php</file>
-            <file>file:/home/gwenole/Documents/AFPA-MediaTeK/src/AppBundle/Controller/BorrowController.php</file>
-            <file>file:/home/gwenole/Documents/AFPA-MediaTeK/src/AppBundle/Repository/BookRepository.php</file>
+            <file>file:/home/gwenole/Documents/AFPA-MediaTeK/src/AppBundle/Twig/AppExtension.php</file>
+            <file>file:/home/gwenole/Documents/AFPA-MediaTeK/src/AppBundle/Resources/views/elements/doc.html.twig</file>
+            <file>file:/home/gwenole/Documents/AFPA-MediaTeK/src/AppBundle/Resources/public/css/index.css</file>
         </group>
     </open-files>
 </project-private>
