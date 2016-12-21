@@ -5,6 +5,40 @@
 .hidden {
     display: none;
 }
+.button {
+    font-weight: bold;
+    padding: 5px;
+    margin: 5px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+.valid {
+    color: #DFF0D8;
+    background: #3C764F;
+}
+.valid:hover {
+    background: #DFF0D8;
+    color: #3C764F;
+    border-color: #3C764F;
+}
+.warning {
+    color: #FCF8E3;
+    background: #9C6D3B;
+}
+.warning:hover {
+    background: #FCF8E3;
+    color: #9C6D3B;
+    border-color: #9C6D3B;
+}
+.alert {
+    color: #F2DEDE;
+    background: #A94442;
+}
+.alert:hover {
+    background: #F2DEDE;
+    color: #A94442;
+    border-color: #A94442;
+}
 .right {
     display: inline-block;
     float: right;
@@ -47,12 +81,15 @@
     flex-direction: column;
 }
 .flex-parent-row {
+    margin: auto;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }
 .flex-child {
-    align-items: flex-start;
-    align-self: center;
+    flex-grow: 1;
+    margin: auto;
 }
 .fixed {
     position: fixed;
@@ -101,7 +138,7 @@ body>nav>header .nav {
 }
 body>nav>section {
     width: 100%;
-    font-size: 2em;
+    font-size: 1em;
 }
 body>nav>section>div {
     width: 100%;
@@ -119,20 +156,8 @@ body>main li {
     list-style-type: none;
 }
 body>main>div .cover {
+    max-width: 100%;
     max-height: 500px;
-}
-body>main>div #borrow {
-    font-weight: bold;
-    padding: 5px;
-    margin: 5px;
-    border: 3px inset white;
-    color: #DFF0D8;
-    background: #3C764F;
-    border-radius: 10px;
-}
-body>main>div #borrow:hover {
-    background: #DFF0D8;
-    color: #3C764F;
 }
 body>main ul {
     padding: 0;
@@ -149,7 +174,7 @@ body>main>section li>a {
     color: inherit;
 }
 body>main>section li>a .cover {
-    width: 39%;
+    max-width: 39%;
     max-height: 200px;
 }
 body>main>section li>a .info {
@@ -200,17 +225,22 @@ body>footer {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    border: 1px solid #888;
+    margin: 5% auto; /* 15% from the top and centered */
     width: 80%; /* Could be more or less, depending on screen size */
 }
-
+.modal-content input {
+    width: 100%;
+}
 .modal-info {
     display: block;
     color: white;
     background-color: #FFBB10;
     padding: 0.01em 16px;
-    margin: 0;
+    min-height: 2.5em;
+}
+.modal-info button {
+    float: right;
+    margin: 0.4em;
 }
 
 .close {
@@ -229,6 +259,9 @@ body>footer {
 /* MEDIA QUERIES */
 
 @media screen and (min-width: 800px) {
+    .mobile-hidden {
+        display: inherit;
+    }
     html {
         position: relative;
         min-height: 100%;
@@ -236,23 +269,16 @@ body>footer {
     body  {
         margin: 0 0 4em; /* bottom = footer height */
     }
-    body>footer {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 4em;
-    }
-    .mobile-hidden {
-        display: inherit;
+    body img.flex-child {
+        flex-grow: 0;
     }
     body>header {
-        margin-left: 15em;
-        margin-right: 15em;
+        max-width: 768px;
+        margin: auto;
     }
     body>header img {
         width: inherit;
-        height: inherit;
+        max-height: 130px;
     }
     body>header .flex-parent-col {
         flex-direction: row;
@@ -280,18 +306,12 @@ body>footer {
         flex-wrap: wrap;
     }
     body>main>section>ul>li.doc { 
-        height: 100%;
-        min-height: 225px;
+        margin: 1em;
+        width: 350px;
+        border: 2px solid;
     }
     body>main>section li.doc>a {
         margin: 1em;
-    }
-    body>main>section li.doc {
-        margin: 1em;
-        width: 400px;
-    }
-    body>main>section li.doc {
-        border: 2px solid #E0A10D;
     }
     body>main>section div {
         margin: 5px;
@@ -302,10 +322,20 @@ body>footer {
     body>main>section .date {
         width: 11em;
     }
+    body>main>div.document {
+        padding: 2em;
+    }
     body>main {
         min-height:100%;
     }
     body>footer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 4em;
     }
-
+    .modal-content {
+        width: 50%;
+    }
 }

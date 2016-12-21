@@ -1,8 +1,9 @@
 {# doc Twig template #}
-{% set color = (borrow == null ? 'green' : (borrow == 1 ? 'orange' : 'red')) %}
-{% set icon = (borrow == null ? 'plus-circle' : (borrow == 1 ? 'times-circle' : 'minus-circle')) %}
-{% set text = (borrow == null ? 'Disponible' : (borrow == 1 ? 'Réservé' : 'Emprunté')) %}
-<li class="flex-child doc border {{ color }}">
+{% set color = (borrow == null ? 'green' : (borrow.isreserved ? 'orange' : 'red')) %}
+{% set icon = (borrow == null ? 'plus-circle' : (borrow.isreserved ? 'times-circle' : 'minus-circle')) %}
+{% set text = (borrow == null ? 'Disponible' : (borrow.isreserved ? 'Réservé' : 'Emprunté')) %}
+{% set sortDate = (borrow == null or (app.request.get('_route') != 'borrows' and app.request.get('_route') != 'myborrows')  ? date|fromNow : (borrow.isreserved ? 1 : borrow.plannedreturn.timestamp)) %}
+<li class="flex-child doc border {{ color }}" style="order: {{ sortDate }};">
     <a class="flex-parent-row no-decor" href="{{ path('document', {'id': id}) }}" title="{{ docTitle }} - {{ author }}">
         <img class="flex-child cover center" src="{{ asset('bundles/app/img/' ~ cover) }}" alt="{{ docTitle }}"/>
         <div class="flex-child flex-parent-col info center">
@@ -12,6 +13,19 @@
                 <li class="flex-child text ico">
                     <i class="fa fa-{{ icon }} fa-3x" aria-hidden="true"></i>
                     <p>{{ text }}</p>
+                    {% if app.request.get('_route') == 'borrows' or app.request.get('_route') == 'myborrows' and borrow != null %}
+                        {% if (borrow.isreserved) %}
+                            <p>Réservé le : {{ borrow.reservation|date('d/m/Y') }}</p>    
+                        {% elseif (borrow.isborrowed) %}
+                            {% if (borrow.plannedreturn != null) %}
+                                <p>à rendre pour le : {{ borrow.plannedreturn|date('d/m/Y') }}</p>            
+                            {% else %}
+                                <p>Emprunté le : {{ borrow.borrowing|date('d/m/Y') }}</p> 
+                            {% endif %}
+                        {% endif %}                        
+                    {% else %}
+                        <p>Ajouté le : {{ date|date('d/m/Y') }}</p>
+                    {% endif %}
                 </li>
             </ul>
         </div>

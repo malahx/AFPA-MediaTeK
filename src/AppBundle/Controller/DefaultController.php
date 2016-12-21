@@ -4,18 +4,17 @@ namespace AppBundle\Controller;
 
 use DateTime;
 use DateInterval;
-use AppBundle\Entity\Borrow;
 use AppBundle\Repository\BorrowRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller {
 
     /**
      * @Route("/", name="homepage")
      */
-    public function newsAction(Request $request) {
+    public function newsAction() {
+        
         $date = new DateTime();
         $date->sub(new DateInterval('P1M'));
 
@@ -39,7 +38,8 @@ class DefaultController extends Controller {
     /**
      * @Route("/catalog", name="catalog")
      */
-    public function catalogAction(Request $request) {
+    public function catalogAction() {
+        
         $em = $this->getDoctrine()->getManager();
 
         $repoBook = $em->getRepository('AppBundle:Book');
@@ -82,14 +82,17 @@ class DefaultController extends Controller {
             $document = $book;
             $author = $document->getAuthor();
             $type = 'ce livre';
+            $date = $document->getYear();
         } elseif ($cd) {
             $document = $cd;
             $author = $document->getComposer();
             $type = 'ce disque';
+            $date = $document->getYear();
         } else {
             $document = $comic;
             $author = $document->getCartoonist();
-            $type = 'cette bande déssiné';
+            $type = 'ce comic';
+            $date = $document->getDate()->format('d/m/Y');
         }
 
         return $this->render('AppBundle::document.html.twig', array(
@@ -99,6 +102,7 @@ class DefaultController extends Controller {
                     'borrow' => $borrow,
                     'cover' => $document->getDocument()->getCover(),
                     'type' => $type,
+                    'date' => $date,
                     'id' => $document->getDocument()->getId()));
     }
 
