@@ -81,6 +81,7 @@
     flex-direction: column;
 }
 .flex-parent-row {
+    margin: auto;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -307,7 +308,7 @@ body>footer {
     body>main>section>ul>li.doc { 
         margin: 1em;
         width: 350px;
-        border: 2px solid #E0A10D;
+        border: 2px solid;
     }
     body>main>section li.doc>a {
         margin: 1em;
