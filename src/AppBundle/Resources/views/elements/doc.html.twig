@@ -2,7 +2,7 @@
 {% set color = (borrow == null ? 'green' : (borrow.isreserved ? 'orange' : 'red')) %}
 {% set icon = (borrow == null ? 'plus-circle' : (borrow.isreserved ? 'times-circle' : 'minus-circle')) %}
 {% set text = (borrow == null ? 'Disponible' : (borrow.isreserved ? 'Réservé' : 'Emprunté')) %}
-{% set sortDate = (borrow == null ? date|fromNow : (borrow.isreserved ? 1 : borrow.plannedreturn.timestamp)) %}
+{% set sortDate = (borrow == null or (app.request.get('_route') != 'borrows' and app.request.get('_route') != 'myborrows')  ? date|fromNow : (borrow.isreserved ? 1 : borrow.plannedreturn.timestamp)) %}
 <li class="flex-child doc border {{ color }}" style="order: {{ sortDate }};">
     <a class="flex-parent-row no-decor" href="{{ path('document', {'id': id}) }}" title="{{ docTitle }} - {{ author }}">
         <img class="flex-child cover center" src="{{ asset('bundles/app/img/' ~ cover) }}" alt="{{ docTitle }}"/>
@@ -13,7 +13,7 @@
                 <li class="flex-child text ico">
                     <i class="fa fa-{{ icon }} fa-3x" aria-hidden="true"></i>
                     <p>{{ text }}</p>
-                    {% if (app.request.get('_route') == 'borrows' or app.request.get('_route')) == 'myborrows' and borrow != null %}
+                    {% if app.request.get('_route') == 'borrows' or app.request.get('_route') == 'myborrows' and borrow != null %}
                         {% if (borrow.isreserved) %}
                             <p>Réservé le : {{ borrow.reservation|date('d/m/Y') }}</p>    
                         {% elseif (borrow.isborrowed) %}
