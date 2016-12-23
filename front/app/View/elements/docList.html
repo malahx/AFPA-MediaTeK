@@ -1,0 +1,66 @@
+{# docList Twig template #}
+<main>
+    <section>
+        <ul class="flex-parent-col">
+            {% set type = 'book' %}
+            {% for book in books %}
+                {% set author = book.author %}
+                {% set docTitle = book.document.title %}
+                {% set cover = book.document.cover %}
+                {% set borrow = book.borrow %}
+                {% set id = book.document.id %}
+                {% set date = book.document.date %}
+                {% include 'AppBundle:elements:doc.html.twig' %}
+            {% endfor %}
+            {% set type = 'music' %}
+            {% for cd in cds %}
+                {% set author = cd.composer %}
+                {% set docTitle = cd.document.title %}
+                {% set cover = cd.document.cover %}
+                {% set borrow = cd.borrow %}
+                {% set id = cd.document.id %}
+                {% set date = cd.document.date %}
+                {% include 'AppBundle:elements:doc.html.twig' %}
+            {% endfor %}
+            {% set type = 'comments-o' %}
+            {% for comic in comics %}
+                {% set author = comic.cartoonist %}
+                {% set docTitle = comic.document.title %}
+                {% set cover = comic.document.cover %}
+                {% set borrow = comic.borrow %}
+                {% set id = comic.document.id %}
+                {% set date = comic.document.date %}
+                {% include 'AppBundle:elements:doc.html.twig' %}
+            {% endfor %}
+        </ul>
+    </section>
+    <footer>
+        <!--<ul class="flex-parent-row center">
+            <li class="flex-child">
+                <a class="no-decor color-nextpage" href="#">
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li class="flex-child">
+                <a class="no-decor color-nextpage" href="#">
+                    1
+                </a>
+            </li>
+            <li class="flex-child">
+                <a class="no-decor color-nextpage" href="#">
+                    2
+                </a>
+            </li>
+            <li class="flex-child">
+                <a class="no-decor color-nextpage" href="#">
+                    3
+                </a>
+            </li>
+            <li class="flex-child">
+                <a class="no-decor color-nextpage" href="#">
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>-->
+    </footer>
+</main>

@@ -9,7 +9,7 @@ require_once dirname(__FILE__) . '/config.inc.php';
 
 // Slim
 $app = new \Slim\App($config);
-require_once dirname(__FILE__) . '/Routing.php';
+require_once dirname(__FILE__) . '/routing.php';
 
 // Doctrine
 use Doctrine\ORM\Tools\Setup;
