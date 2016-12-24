@@ -1,6 +1,10 @@
 /api/nbproject/private/
-/Front/nbproject/private/
+/app/nbproject/private/
+/nbproject/private/
 /ECF/.~lock*
 *~
-/MediaTeK-Front/nbproject/private/
-/front/nbproject/private/
+/api/vendor/
+/api/composer.lock
+/app/node_modules/
+/app/bower_components/
+/app/.bowerrc
