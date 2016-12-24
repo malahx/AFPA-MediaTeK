@@ -14,9 +14,9 @@
         <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
         <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 
-        <link rel="stylesheet" href="Asset/css/index.css"/>
+        <link rel="stylesheet" href="src/Asset/css/index.css"/>
         <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">-->
-        <link rel="stylesheet" href="Asset/css/fawesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="src/Asset/css/fawesome/css/font-awesome.min.css" />
     </head>
     <body>
 
@@ -24,13 +24,13 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <header ng-include="'View/elements/header.html'"></header>
-        <nav ng-controller="NavbarCtrl" class="center" ng-include="'View/elements/navbar.html'"></nav>
+        <header ng-include="'src/View/elements/header.html'"></header>
+        <nav ng-controller="NavbarCtrl" class="center" ng-include="'src/View/elements/navbar.html'"></nav>
 
         <main ng-view></main>
 
-        <footer class="center" ng-include="'View/elements/footer.html'"></footer>
-        <div id="loginModal" class="modal" ng-include="'View/elements/modal.html'"></div>
+        <footer class="center" ng-include="'src/View/elements/footer.html'"></footer>
+        <div id="loginModal" class="modal" ng-include="'src/View/elements/modal.html'"></div>
 
         <!-- In production use:
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -38,8 +38,8 @@
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="app.js"></script>
-        <script src="Controller/news.js"></script>
-        <script src="Controller/navbar.js"></script>
+        <script src="src/Controller/news.js"></script>
+        <script src="src/Controller/navbar.js"></script>
         <!--<script src="Asset/js/browsing.js"></script>-->
     </body>
 </html>

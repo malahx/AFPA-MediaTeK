@@ -1,0 +1,39 @@
+<section>
+    <ul class="flex-parent-col">
+        <!--<li ng-repeat="todo in todos" ng-class="{completed: todo.completed}">
+            <div class="view">
+                <input class="mark" type="checkbox" ng-model="todo.completed" />
+                <span>{{todo.title}}</span>
+                <i class="fa fa-times" ng-click="removeTodo(todo)"></i>
+            </div>
+        </li>-->
+        <li ng-repeat="doc in docs" class="flex-child doc border green" style="order: 1;">
+            <a class="flex-parent-row no-decor" href="#" title="{{ doc.document.title }} - {{ doc.author }}">
+                <img class="flex-child cover center" src="src/Asset/img/{{ doc.document.cover }}" alt="{{ doc.document.title }}"/>
+                <div class="flex-child flex-parent-col info center">
+                    <ul>
+                        <li class="flex-child text bold"><i class="fa fa-{{ type }}" aria-hidden="true"></i> {{ doc.document.title }}</li>
+                        <li class="flex-child text italic"> {{ doc.author }}</li>
+                        <li class="flex-child text ico">
+                            <i class="fa fa-{{ icon }} fa-3x" aria-hidden="true"></i>
+                            <p>a</p>
+                            <!--{% if app.request.get('_route') == 'borrows' or app.request.get('_route') == 'myborrows' and borrow != null %}
+                                {% if (borrow.isreserved) %}
+                                    <p>Réservé le : {{ borrow.reservation|date('d/m/Y') }}</p>    
+                                {% elseif (borrow.isborrowed) %}
+                                    {% if (borrow.plannedreturn != null) %}
+                                        <p>à rendre pour le : {{ borrow.plannedreturn|date('d/m/Y') }}</p>            
+                                    {% else %}
+                                        <p>Emprunté le : {{ borrow.borrowing|date('d/m/Y') }}</p> 
+                                    {% endif %}
+                                {% endif %}                        
+                            {% else %}
+                                <p>Ajouté le : {{ date|date('d/m/Y') }}</p>
+                            {% endif %}-->
+                        </li>
+                    </ul>
+                </div>
+            </a>
+        </li>
+    </ul>
+</section>
