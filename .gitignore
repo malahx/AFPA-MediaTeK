@@ -1,11 +1,8 @@
 /api/nbproject/private/
-/app/nbproject/private/
 /nbproject/private/
 /ECF/.~lock*
 *~
 /api/vendor/
 /api/composer.lock
-/app/node_modules/
-/app/bower_components/
-/app/.bowerrc
-/app/src/Asset/css/fawesome/
+/node_modules/
+/asset/css/fawesome/

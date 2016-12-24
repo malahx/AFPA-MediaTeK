@@ -1,5 +1,4 @@
 #!/bin/bash
-cd app
 nohup npm start >/dev/null 2>&1 &
 cd ../api
 composer dump-autoload -o
