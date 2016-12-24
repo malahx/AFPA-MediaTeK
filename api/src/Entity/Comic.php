@@ -134,8 +134,9 @@ class Comic {
             'cartoonist' => $this->cartoonist,
             'date' => $this->date->getTimestamp(),
             'document' => $this->document->toArray(),
-            'borrow' => $this->borrow ? $this->borrow->toArray() : null
+            'borrow' => $this->borrow ? $this->borrow->toArray() : null,
+            'type' => 3
         );
     }
-
+    
 }

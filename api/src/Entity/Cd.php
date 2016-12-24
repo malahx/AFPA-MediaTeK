@@ -142,8 +142,9 @@ class Cd
             'composer' => $this->composer,
             'year' => $this->year,
             'document' => $this->document->toArray(),
-            'borrow' => $this->borrow ? $this->borrow->toArray() : null
+            'borrow' => $this->borrow ? $this->borrow->toArray() : null,
+            'type' => 2
         );
     }
-
+        
 }

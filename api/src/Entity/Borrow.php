@@ -252,7 +252,8 @@ class Borrow {
             'effectiveReturn' => $this->effectiveReturn ? $this->effectiveReturn->getTimestamp() : null,
             'reservation' => $this->reservation ? $this->reservation->getTimestamp() : null,
             'document' => $this->document->toArray(),
-            'user' => $this->user->toArray()
+            'user' => $this->user->toArray(),
+            'isReserved' => $this->isReserved()
         );
     }
 
