@@ -12,10 +12,14 @@
 //
 //  $routeProvider.otherwise({redirectTo: '/view1'});
 //}]);
-var app = angular.module("myApp", ["ngRoute"]);
-app.config(function($routeProvider) {
-    $routeProvider
-    .when("/", {
-        templateUrl : "View/home.html"
-    });
-});
+
+angular.module('myApp', [
+  'ngRoute',
+  'myApp.news',
+  'myApp.navbar'
+])
+.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+  $locationProvider.hashPrefix('!');
+
+  $routeProvider.otherwise({redirectTo: '/'});
+}]);

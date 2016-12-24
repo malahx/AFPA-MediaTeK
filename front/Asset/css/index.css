@@ -2,7 +2,7 @@
 .mobile-hidden {
     display: none;
 }
-.hidden {
+.def-hidden {
     display: none;
 }
 .button {
@@ -293,7 +293,7 @@ body>footer {
         display: inline-flex;
         flex-direction: row;
     }
-    body>nav>section.hidden {
+    body>nav>section.def-hidden {
         display: inherit;
     }
     body>nav>section .flex-child {

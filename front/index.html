@@ -25,8 +25,12 @@
         <![endif]-->
 
         <header ng-include="'View/elements/header.html'"></header>
+        <nav ng-controller="NavbarCtrl" class="center" ng-include="'View/elements/navbar.html'"></nav>
 
-        <div ng-view></div>
+        <main ng-view></main>
+
+        <footer class="center" ng-include="'View/elements/footer.html'"></footer>
+        <div id="loginModal" class="modal" ng-include="'View/elements/modal.html'"></div>
 
         <!-- In production use:
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -34,6 +38,8 @@
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="app.js"></script>
+        <script src="Controller/news.js"></script>
+        <script src="Controller/navbar.js"></script>
         <!--<script src="Asset/js/browsing.js"></script>-->
     </body>
 </html>

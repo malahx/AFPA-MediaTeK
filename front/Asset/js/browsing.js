@@ -37,7 +37,7 @@ window.addEventListener('load', function (e) {
     
     // Lors du clique sur le bouton de la médiathèque (mobile)
     mediaEl.onclick = function (e) {
-        navSecEl.classList.toggle('hidden');
+        navSecEl.classList.toggle('def-hidden');
         mediaLinkEl.classList.toggle('link-color-black');
         mediaLinkEl.classList.toggle('link-color-white');
         location.hash = "#navSec";
