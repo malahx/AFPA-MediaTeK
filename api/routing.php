@@ -12,5 +12,5 @@ $app->get('/resa/{id}',             '\App\Controller\Borrow::resa');
 $app->get('/borrow/{id}',           '\App\Controller\Borrow::borrow');
 $app->get('/closeBorrowing/{id}',   '\App\Controller\Borrow::closeBorrowing');
 
-$app->get('/events/{id}',           '\App\Controller\Events::events');
+$app->get('/events/{id}',           '\App\Controller\Event::events');
 

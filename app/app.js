@@ -16,8 +16,10 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.news',
-  'myApp.navbar'
+  'myApp.navbar',
+  'myApp.document'
 ])
+
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 

@@ -1,0 +1,32 @@
+<div class="flex-parent-col document {{ doc.borrow  == null ? 'green' : doc.borrow.isReserved ? 'orange' : 'red' }}">
+    <img class="flex-child cover center" src="src/Asset/img/{{ doc.document.cover }}" alt="{{ doc.document.title }}"/>
+    <div class="document flex-child flex-parent-col info center">
+        <ul>
+            <li class="flex-child text bold"><i class="fa fa-{{ icon_book }}" aria-hidden="true"></i> {{ doc.document.title }}</li>
+            <li class="flex-child text italic">{{ doc.author || doc.composer || doc.cartoonist }}</li>
+            <li class="flex-child text">Date : {{ doc.year || ((doc.date * 1000) | date:'dd/MM/yyyy') }}</li><br/>
+            <li class="flex-child text ico">
+                <!--{% if (borrow == null and is_granted("IS_AUTHENTICATED_FULLY")) %}
+                    <a id="borrow" class="button no-decor valid" ng-href="#!/resa/{{ doc.document.id }}" class="no-decor"><i class="fa fa-plus-circle" aria-hidden="true"></i> Réserver {{ type }}</a>
+                {% else %}
+                    <i class="fa fa-{{ icon }} fa-3x" aria-hidden="true"></i>
+                    <p>{{ text }}</p>
+                    {% if (is_granted("ROLE_ADMIN")) %}
+                        {% if borrow %}
+                            <p>Utilisateur : <span class="bold">{{ borrow.user.username }}</span></p>
+                            <p>Date de réservation : <span class="bold">{{ borrow.reservation|date("d/m/Y") }}</span></p>
+                            {% if (borrow.borrowing) %}
+                                <p>Date d'emprunt : <span class="bold">{{ borrow.borrowing|date("d/m/Y") }}</span></p>
+                                <p>Date de retour prévu : <span class="bold">{{ borrow.plannedReturn|date("d/m/Y") }}</span></p>
+                                <a class="button no-decor alert" href="{{ path('closeBorrowing', {'id': borrow.id}) }}">Clore l'emprunt</a>
+                            {% elseif (borrow.reservation) %}
+                                <a class="button no-decor warning" href="{{ path('closeBorrowing', {'id': borrow.id}) }}">Annuler la réservation</a>
+                                <a class="button no-decor alert" href="{{ path('borrow', {'id': borrow.id}) }}">Valider l'emprunt</a>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                {% endif %}-->
+            </li>
+        </ul>
+    </div>
+</div>
