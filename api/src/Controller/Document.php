@@ -27,8 +27,9 @@ class Document {
         $books = $repoBook->findAllAfter($date);
         $cds = $repoCd->findAllAfter($date);
         $comics = $repoComic->findAllAfter($date);
-
-        return $response->withJson(Serializer::objToArray($books), 200);
+        $document = array_merge($books, $cds, $comics);
+        
+        return $response->withJson(Serializer::objToArray($document), 200);
     }
 
 }

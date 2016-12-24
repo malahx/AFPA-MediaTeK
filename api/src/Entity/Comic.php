@@ -5,7 +5,7 @@ namespace App\Entity;
 /**
  * Comic
  *
- * @Table(name="comic", indexes={@Index(name="work_id", columns={"document_id"})})
+ * @Table(name="comic", indexes={@Index(name="document_id1", columns={"document_id"})})
  * @Entity(repositoryClass="App\Repository\ComicRepository")
  */
 class Comic {
@@ -134,7 +134,7 @@ class Comic {
             'cartoonist' => $this->cartoonist,
             'date' => $this->date->getTimestamp(),
             'document' => $this->document->toArray(),
-            'borrow' => $this->borrow->toArray()
+            'borrow' => $this->borrow ? $this->borrow->toArray() : null
         );
     }
 

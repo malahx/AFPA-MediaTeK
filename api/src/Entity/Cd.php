@@ -5,7 +5,7 @@ namespace App\Entity;
 /**
  * Cd
  *
- * @Table(name="cd", indexes={@Index(name="work_id", columns={"document_id"})})
+ * @Table(name="cd", indexes={@Index(name="document_id2", columns={"document_id"})})
  * @Entity(repositoryClass="App\Repository\CdRepository")
  */
 class Cd
@@ -142,7 +142,7 @@ class Cd
             'composer' => $this->composer,
             'year' => $this->year,
             'document' => $this->document->toArray(),
-            'borrow' => $this->borrow->toArray()
+            'borrow' => $this->borrow ? $this->borrow->toArray() : null
         );
     }
 

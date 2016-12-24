@@ -5,7 +5,7 @@ namespace App\Entity;
 /**
  * Book
  *
- * @Table(name="book", indexes={@Index(name="work_id", columns={"document_id"})})
+ * @Table(name="book", indexes={@Index(name="document_id3", columns={"document_id"})})
  * @Entity(repositoryClass="App\Repository\BookRepository")
  */
 class Book {
