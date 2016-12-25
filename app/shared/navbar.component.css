@@ -1,0 +1,48 @@
+nav {
+    background-color: #FFBB10;   
+}
+nav>header, nav>section>div, nav>footer {
+    border-bottom: 2px solid #E0A10D;
+}
+nav {
+    border-top: 10px solid #ECEDEE;
+}
+nav>header .nav {
+    width: 50%; 
+    cursor: pointer;
+}
+nav>section {
+    width: 100%;
+    font-size: 1em;
+}
+nav>section>div {
+    width: 100%;
+}
+nav>footer {
+    color: white;
+    font-size: 20px;
+    cursor: default;
+    width: 100%;
+}
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 800px) {
+    nav>header {
+        display: none;
+    }
+    nav>section {
+        font-size: 1em;
+    }
+    nav>section .flex-parent-col {
+        display: inline-flex;
+        flex-direction: row;
+    }
+    nav>section.def-hidden {
+        display: inherit;
+    }
+    nav>section .flex-child {
+        border-left: 1px solid #75787C;
+        border-right: 1px solid #75787C;
+        padding: 5px;
+    }
+}

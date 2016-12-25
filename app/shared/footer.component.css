@@ -1,0 +1,20 @@
+footer {
+    border-top: 10px solid #ECEDEE;
+}
+
+/* FOOTER */
+footer {
+    background-color: #878C95;   
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 800px) {
+    footer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 4em;
+    }
+}

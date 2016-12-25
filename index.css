@@ -1,0 +1,133 @@
+/* GENERAL */
+.mobile-hidden {
+    display: none;
+}
+.def-hidden {
+    display: none;
+}
+.button {
+    font-weight: bold;
+    padding: 5px;
+    margin: 5px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+.valid {
+    color: #DFF0D8;
+    background: #3C764F;
+}
+.valid:hover {
+    background: #DFF0D8;
+    color: #3C764F;
+    border-color: #3C764F;
+}
+.warning {
+    color: #FCF8E3;
+    background: #9C6D3B;
+}
+.warning:hover {
+    background: #FCF8E3;
+    color: #9C6D3B;
+    border-color: #9C6D3B;
+}
+.alert {
+    color: #F2DEDE;
+    background: #A94442;
+}
+.alert:hover {
+    background: #F2DEDE;
+    color: #A94442;
+    border-color: #A94442;
+}
+.right {
+    display: inline-block;
+    float: right;
+}
+.no-decor {
+    text-decoration: none;
+}
+.underline {
+    text-decoration: underline;
+}
+.link-color-black {
+    color: black;
+}
+.link-color-black:hover {
+    color: white;
+}
+.link-color-white {
+    color: white;
+}
+.link-color-white:hover {
+    color: black;
+}
+.bold {
+    font-weight: bold;
+}
+.italic {
+    font-style: italic;
+}
+.center {
+    text-align: center;
+}
+.right {
+    text-align: right;
+}
+.left {
+    text-align: left;
+}
+.flex-parent-col {
+    display: flex;
+    flex-direction: column;
+}
+.flex-parent-row {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.flex-child {
+    flex-grow: 1;
+    margin: auto;
+}
+.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background-color: #FFBB10;
+}
+.red {
+    color: #A94442;
+    background-color: #F2DEDE;
+}
+.green {
+    color: #3C764F;
+    background-color: #DFF0D8;
+}
+.orange {
+    color: #9C6D3B;
+    background-color: #FCF8E3;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 800px) {
+    .mobile-hidden {
+        display: inherit;
+    }
+    html {
+        position: relative;
+        min-height: 100%;
+    }
+    body  {
+        margin: 0 0 4em; /* bottom = footer height */
+    }
+    body img.flex-child {
+        flex-grow: 0;
+    }
+}
