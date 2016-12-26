@@ -5,6 +5,7 @@ namespace App\Controller;
 use DateTime;
 use DateInterval;
 use App\Util\Serializer;
+use App\Repository\BorrowRepository;
 
 class Document {
 
@@ -59,4 +60,19 @@ class Document {
         return $response->withJson($doc ? $doc->toArray() : $document->toArray(), 200);
     }
     
+    function catalog($request, $response, $args) {
+        global $em;
+
+        $repoBook = $em->getRepository('App\Entity\Book');
+        $repoCd = $em->getRepository('App\Entity\Cd');
+        $repoComic = $em->getRepository('App\Entity\Comic');
+
+        $books = BorrowRepository::setBorrows($repoBook, $repoBook->findAll());
+        $cds = BorrowRepository::setBorrows($repoCd, $repoCd->findAll());
+        $comics = BorrowRepository::setBorrows($repoComic, $repoComic->findAll());
+
+        $docs = array_merge($books, $cds, $comics);
+        
+        return $response->withJson(Serializer::objToArray($docs), 200);
+    }
 }

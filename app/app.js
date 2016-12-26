@@ -17,7 +17,8 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.news',
   'myApp.navbar',
-  'myApp.document'
+  'myApp.document',
+  'myApp.events'
 ])
 
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

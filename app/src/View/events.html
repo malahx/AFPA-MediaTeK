@@ -1,0 +1,14 @@
+<main>
+    <section>
+        <ul id="events">
+            <li ng-repeat="event in events" class="border">
+                <a class="flex-parent-col no-decor" href="#!/events" title="{{ event.title }}">
+                    <div class="title flex-child center text bold"><i class="fa fa-calendar-o" aria-hidden="true"></i> {{ event.title }}</div>
+                    <div class="date flex-child center underline text">le {{ (event.date * 1000) | date:'dd/MM/yyyy' }}&nbsp;</div>
+                    <div class="hour flex-child center underline text">à {{ (event.date * 1000) | date:'HH:mm' }}</div>
+                    <div class="desc flex-child text italic">{{ event.description }}</div>
+                </a>
+            </li>
+        </ul>
+    </section>
+</main>

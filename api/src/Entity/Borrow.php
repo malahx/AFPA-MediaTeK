@@ -253,7 +253,9 @@ class Borrow {
             'reservation' => $this->reservation ? $this->reservation->getTimestamp() : null,
             'document' => $this->document->toArray(),
             'user' => $this->user->toArray(),
-            'isReserved' => $this->isReserved()
+            'isReserved' => $this->isReserved(),
+            'isBorrowed' => $this->isBorrowed(),
+            'isCancelled' => $this->isCancelled()
         );
     }
 
