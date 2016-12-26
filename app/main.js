@@ -1,4 +1,4 @@
-
+'use strict';
 (function(app) {
   document.addEventListener('DOMContentLoaded', function() {
     ng.platformBrowserDynamic

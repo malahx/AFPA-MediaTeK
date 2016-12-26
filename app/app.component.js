@@ -1,3 +1,4 @@
+'use strict';
 (function(app) {
   app.AppComponent =
     ng.core.Component({
@@ -5,6 +6,6 @@
       templateUrl: 'app/app.component.html'
     })
     .Class({
-      constructor: function() {}
-    });
+      constructor: function() {
+    }});
 })(window.app || (window.app = {}));
