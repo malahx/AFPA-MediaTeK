@@ -8,7 +8,7 @@ Evaluation AFPA - Module Web Gestionnaire de Médiathèque
 * HTML/CSS,
 * PHP/Slim/Doctrine,
 * MySQL/SQLite,
-* AngularJS 2.
+* AngularJS 1.6.
 
 ##Installation :
 
