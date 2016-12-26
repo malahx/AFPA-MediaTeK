@@ -7,13 +7,14 @@ Evaluation AFPA - Module Web Gestionnaire de Médiathèque
 
 * HTML/CSS,
 * PHP/Slim/Doctrine,
-* MySQL,
-* AngularJS 1.6.
+* MySQL/SQLite,
+* AngularJS 2.
 
 ##Installation :
 
-* Importer la base de donnée `mediatek.sql`,
-* Installer les dépendances par la commande `composer install`
-* Renommer le fichier de configuration app/config/parameters.yml.dist par app/config/parameters.yml
-* Modifier les paramètres de la configuration
-* Lancez le serveur : php bin/console server:start
+* Par défaut le projet est configuré sur SQLite, si vous souhaitez utiliser MySQL :
+    * Importer la base de donnée `api/mediatek.sql`,
+    * Modifier la configuration `api/config.inc.php`,
+* Installer les dépendances JS et PHP : `./install.sh`,
+* Lancez l'application : `./start.sh`
+
