@@ -6,3 +6,4 @@
 /api/composer.lock
 /node_modules/
 /asset/css/fawesome/
+npm-debug.log
