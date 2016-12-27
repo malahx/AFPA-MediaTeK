@@ -1,16 +1,15 @@
 <?php
 
 // Routing
-$app->get('/',                      '\App\Controller\Document::news');
-$app->get('/news',                  '\App\Controller\Document::news');
-$app->get('/catalog',               '\App\Controller\Document::catalog');
-$app->get('/document/{id}',         '\App\Controller\Document::document');
+$app->get('/api/news',                  '\App\Controller\Document::news');
+$app->get('/api/catalog',               '\App\Controller\Document::catalog');
+$app->get('/api/document/{id}',         '\App\Controller\Document::document');
 
-$app->get('/myborrows',             '\App\Controller\Borrow::myBorrows');
-$app->get('/borrows',               '\App\Controller\Borrow::borrows');
-$app->get('/resa/{id}',             '\App\Controller\Borrow::resa');
-$app->get('/borrow/{id}',           '\App\Controller\Borrow::borrow');
-$app->get('/closeBorrowing/{id}',   '\App\Controller\Borrow::closeBorrowing');
+$app->get('/api/myborrows',             '\App\Controller\Borrow::myBorrows');
+$app->get('/api/borrows',               '\App\Controller\Borrow::borrows');
+$app->get('/api/resa/{id}',             '\App\Controller\Borrow::resa');
+$app->get('/api/borrow/{id}',           '\App\Controller\Borrow::borrow');
+$app->get('/api/closeBorrowing/{id}',   '\App\Controller\Borrow::closeBorrowing');
 
-$app->get('/events',                '\App\Controller\Event::events');
+$app->get('/api/events',                '\App\Controller\Event::events');
 

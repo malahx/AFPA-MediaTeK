@@ -1,0 +1,118 @@
+<nav id='navbar' class='center'>
+    <h1>Mediathèque</h1>
+    <header id="navbar">
+        <div class="flex-parent-row">
+            <div id='acc' class="flex-child nav">
+                <a id='accLink' class="link-color-black" href="http://www.pleyber-christ.fr" title="Accueil">
+                    <i class="fa fa-home fa-3x" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div id='mediatek' class="flex-child nav" ng-click="menu()">
+                <a id="mediatekLink" class="link-color-black" title="Médiathèque">
+                    <i class="fa fa-book fa-3x" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </header>        
+    <section id="navSec" class="def-hidden bold">
+        <div class="flex-parent-col">
+            <div class="flex-child mobile-hidden">
+                <a class="link-color-white no-decor" href="http://www.pleyber-christ.fr">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <span>Accueil</span>
+                </a>
+            </div>
+            <div class="flex-child">
+                <a ng-class="{'link-color-black':isActive('/events'), 'link-color-white':!isActive('/events')}" class="no-decor" ng-href="#!/events">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    <span>Evènements</span>
+                </a>
+            </div>
+            <div class="flex-child">
+                <a ng-class="{'link-color-black':isActive('/info'), 'link-color-white':!isActive('/info')}" class="no-decor" href="#">
+                    <i class="fa fa-info" aria-hidden="true"></i>
+                    <span>Informations</span>
+                </a>
+            </div>
+            <div class="flex-child">
+                <a ng-class="{'link-color-black':isActive('/'), 'link-color-white':!isActive('/')}" class="no-decor" ng-href="#!/news">
+                    <i class="fa fa-flash" aria-hidden="true"></i>
+                    <span>Nouveautés</span>
+                </a>
+            </div>
+            <div id="loginModalBtn" class="flex-child" onclick="modal.open()">
+                <a class="link-color-white no-decor">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                    <span>Se connecter</span>
+                </a>
+            </div>
+            <div class="flex-child">
+                <a class="link-color-white no-decor" href="{{ path('fos_user_registration_register') }}">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    <span>S'enregistrer</span>
+                </a>
+            </div>
+            <!-- {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                <div class="flex-child">
+                    <a class="{% if app.request.get('_route') == 'catalog' %}link-color-black{% else %}link-color-white{% endif %} no-decor" href="{{ path('catalog') }}">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        <span>Catalogue</span>
+                    </a>
+                </div>
+                <div class="flex-child">
+                    <a class="{% if app.request.get('_route') == 'myborrows' %}link-color-black{% else %}link-color-white{% endif %} no-decor" href="{{ path('myborrows') }}">
+                        <i class="fa fa-bookmark" aria-hidden="true"></i>
+                        <span>Vos emprunts</span>
+                    </a>
+                </div>
+            {% endif %}
+            {% if is_granted("ROLE_ADMIN") %}
+                <div class="flex-child">
+                    <a class="{% if app.request.get('_route') == 'borrows' %}link-color-black{% else %}link-color-white{% endif %} no-decor" href="{{ path('borrows') }}">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <span>Tous les Emprunts</span>
+                    </a>
+                </div>
+            {% endif %}
+
+            {% if not is_granted("IS_AUTHENTICATED_FULLY") %}
+                <div id="loginModalBtn" class="flex-child">
+                    <a class="link-color-white no-decor">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        <span>Se connecter</span>
+                    </a>
+                </div>
+                <div class="flex-child">
+                    <a class="link-color-white no-decor" href="{{ path('fos_user_registration_register') }}">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <span>S'enregistrer</span>
+                    </a>
+                </div>
+            {% else %}
+                <div class="flex-child">
+                    <a class="link-color-white no-decor" href="{{ path('fos_user_security_logout') }}">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <span>Déconnection</span>
+                    </a>
+                </div>
+            {% endif %} -->
+        </div>
+    </section>
+    <footer id="title" class="desktop-hidden">
+        <div class="bold">
+            <span>{{ title() }}</span>
+            <!-- Fermeture de la nav à ajouter
+            <div id="closeNav" class="show">
+                <a class="link-color-white no-decor" href="#top">
+                    <i class="fa fa-close" aria-hidden="true"></i>
+                </a>
+            </div>-->
+            <div id="return" class="def-hidden">
+                <a class="link-color-white no-decor" href="#top">
+                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</nav>
+

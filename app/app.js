@@ -16,7 +16,6 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.news',
-  'myApp.navbar',
   'myApp.document',
   'myApp.events'
 ])

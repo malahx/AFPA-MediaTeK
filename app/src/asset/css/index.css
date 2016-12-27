@@ -2,6 +2,9 @@
 .mobile-hidden {
     display: none;
 }
+.desktop-hidden {
+    display: inherit;
+}
 .def-hidden {
     display: none;
 }
@@ -115,10 +118,10 @@ body {
     margin: 0;
 }
 
-body>nav>header, body>nav>section>div, body>nav>footer, body>main>section li.border {
+body>main>section li.border {
     border-bottom: 2px solid #E0A10D;
 }
-body>nav, body>footer {
+body>footer {
     border-top: 10px solid #ECEDEE;
 }
 
@@ -126,28 +129,6 @@ body>nav, body>footer {
 body>header img {
     width: 100%;
     height: 100%;
-}
-
-/* NAV*/
-body>nav {
-    background-color: #FFBB10;   
-}
-body>nav>header .nav {
-    width: 50%; 
-    cursor: pointer;
-}
-body>nav>section {
-    width: 100%;
-    font-size: 1em;
-}
-body>nav>section>div {
-    width: 100%;
-}
-body>nav>footer {
-    color: white;
-    font-size: 20px;
-    cursor: default;
-    width: 100%;
 }
 
 /* MAIN */
@@ -262,6 +243,9 @@ body>footer {
     .mobile-hidden {
         display: inherit;
     }
+    .desktop-hidden {
+        display: none;
+    }
     html {
         position: relative;
         min-height: 100%;
@@ -283,24 +267,6 @@ body>footer {
     body>header .flex-parent-col {
         flex-direction: row;
     }    
-    body>nav>header {
-        display: none;
-    }
-    body>nav>section {
-        font-size: 1em;
-    }
-    body>nav>section .flex-parent-col {
-        display: inline-flex;
-        flex-direction: row;
-    }
-    body>nav>section.def-hidden {
-        display: inherit;
-    }
-    body>nav>section .flex-child {
-        border-left: 1px solid #75787C;
-        border-right: 1px solid #75787C;
-        padding: 5px;
-    }
     body>main>section .flex-parent-col {
         flex-direction: row;
         flex-wrap: wrap;
@@ -316,11 +282,21 @@ body>footer {
     body>main>section div {
         margin: 5px;
     }
-    body>main>section .title {
-        width: 20em;
+    body>main>section>ul#events .date {
+        min-width: 7em;
+        flex-grow: 0;
     }
-    body>main>section .date {
-        width: 11em;
+    body>main>section>ul#events .title {
+        min-width: 20em;
+        text-align: left;
+        flex-grow: 0;
+    }
+    body>main>section>ul#events .hour {
+        min-width: 10em;
+        flex-grow: 0;
+    }
+    body>main>section>ul#events .desc {
+        text-align: left;
     }
     body>main>div.document {
         padding: 2em;
@@ -339,3 +315,4 @@ body>footer {
         width: 50%;
     }
 }
+

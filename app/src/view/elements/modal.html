@@ -5,9 +5,8 @@
         <h2>Se connecter</h2>
     </header>
     <section>
-        <form class="modal-form" action="{{ path("fos_user_security_check") }}" method="post">
+        <form class="modal-form" action="http://localhost:8888/api/login" method="post">
             <div class="modal-content">
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                 <label for="username"><span>Utilisateur :</span><br/>
                     <input type="text" class="form-control" id="username" name="_username" placeholder="Utilisateur" required="required">
                 </label><br/>
@@ -19,7 +18,7 @@
                 </label>
             </div>
             <footer class="modal-info">
-                <button type="submit" id="_submit" name="_submit" class="">&nbsp;Login</button>
+                <button type="submit" id="_submit" name="_submit" class="green">&nbsp;Login</button>
             </footer>
         </form>
     </section>

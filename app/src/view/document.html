@@ -1,5 +1,5 @@
 <div class="flex-parent-col document {{ doc.borrow  == null ? 'green' : doc.borrow.isReserved ? 'orange' : 'red' }}">
-    <img class="flex-child cover center" src="src/Asset/img/{{ doc.document.cover }}" alt="{{ doc.document.title }}"/>
+    <img class="flex-child cover center" ng-src="src/asset/img/{{ doc.document.cover }}" alt="{{ doc.document.title }}"/>
     <div class="document flex-child flex-parent-col info center">
         <ul>
             <li class="flex-child text bold"><i class="fa fa-{{ icon_book }}" aria-hidden="true"></i> {{ doc.document.title }}</li>

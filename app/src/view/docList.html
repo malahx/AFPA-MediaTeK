@@ -2,7 +2,7 @@
     <ul class="flex-parent-col">
         <li ng-repeat="doc in docs" class="flex-child doc border {{ doc.borrow  == null ? 'green' : doc.borrow.isReserved ? 'orange' : 'red' }}" style="order: 1;">
             <a class="flex-parent-row no-decor" ng-href="#!/document/{{ doc.document.id }}" title="{{ doc.document.title }} - {{ doc.author }}">
-                <img class="flex-child cover center" src="src/Asset/img/{{ doc.document.cover }}" alt="{{ doc.document.title }}"/>
+                <img class="flex-child cover center" ng-src="src/asset/img/{{ doc.document.cover }}" alt="{{ doc.document.title }}"/>
                 <div class="flex-child flex-parent-col info center">
                     <ul>
                         <li class="flex-child text bold"><i class="fa fa-{{ doc.type == 1 ? 'book' : doc.type == 2 ? 'music' : 'comments-o' }}" aria-hidden="true"></i> {{ doc.document.title }}</li>
