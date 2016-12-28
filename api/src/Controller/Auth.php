@@ -12,6 +12,14 @@ class Auth {
         return isset($_SESSION['userid']) && $_SESSION['userid'] != null;
     }
 
+    public static function isAdmin() {
+        return isset($_SESSION['admin']) && $_SESSION['admin'];
+    }
+
+    public static function getUserId() {
+        return Auth::isLogged() ? $_SESSION['userid'] : null;
+    }
+
     public function __construct(ContainerInterface $ci) {
         $this->ci = $ci;
     }
@@ -35,6 +43,10 @@ class Auth {
         }
 
         $_SESSION['userid'] = (int) $user->getId();
+
+        if ($user->getRoles() == array("ROLE_ADMIN")) {
+            $_SESSION['admin'] = true;
+        }
         
         return $response->withJson($user->toArray(), 200);
     }
