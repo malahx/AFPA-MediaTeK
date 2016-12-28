@@ -19,6 +19,9 @@ nav#navbar>section {
 nav#navbar>section>div {
     width: 100%;
 }
+nav#navbar>section>div .flex-child {
+    cursor: pointer;
+}
 nav#navbar>footer {
     color: white;
     font-size: 20px;

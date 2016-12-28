@@ -16,6 +16,7 @@
 
         <link rel="stylesheet" href="src/asset/css/index.css"/>
         <link rel="stylesheet" href="src/shared/navbar.component.css"/>
+        <link rel="stylesheet" href="src/shared/modal.component.css"/>
         <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">-->
         <!--<link rel="stylesheet" href="src/Asset/css/fawesome/css/font-awesome.min.css" />-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -32,7 +33,7 @@
         <main ng-view></main>
 
         <footer class="center" ng-include="'src/view/elements/footer.html'"></footer>
-        <div id="loginModal" class="modal" ng-include="'src/view/elements/modal.html'"></div>
+        <modal id="loginModal" class="modal" ng-click="close()"></modal>
 
         <!-- In production use:
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -43,7 +44,10 @@
         <script src="src/controller/news.js"></script>
         <script src="src/controller/document.js"></script>
         <script src="src/controller/events.js"></script>
+        <script src="src/shared/modal.component.js"></script>
         <script src="src/shared/navbar.component.js"></script>
         <script src="src/asset/js/browsing.js"></script>
+        <script src="src/user.service.js"></script>
+        <!--<script src="src/asset/js/userStorage.js"></script>-->
     </body>
 </html>

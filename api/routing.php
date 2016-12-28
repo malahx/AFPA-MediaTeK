@@ -13,3 +13,5 @@ $app->get('/api/closeBorrowing/{id}',   '\App\Controller\Borrow::closeBorrowing'
 
 $app->get('/api/events',                '\App\Controller\Event::events');
 
+$app->post('/api/login',                 '\App\Controller\Auth::login');
+

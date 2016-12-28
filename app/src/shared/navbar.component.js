@@ -4,7 +4,12 @@ angular.module('myApp')
 
 .component('navbar', {
     templateUrl: 'src/shared/navbar.component.html',
-    controller: function NavbarCtrl($scope, $route, $location) {
+    controllerAs: 'NavbarCtrl',
+    controller: function($scope, $route, $location, user) {
+
+        $scope.user = user;
+        
+        // Quel est le titre ?
         $scope.title = function() {
             var route = $route.routes[$location.path()];
             if (!route) {
@@ -20,6 +25,8 @@ angular.module('myApp')
             }
             return;
         };
+
+        // Quel route est active ?
         $scope.isActive = function(path) {
             var currentPath = $location.path().split('/')[1];
             if (!currentPath) {
@@ -30,13 +37,21 @@ angular.module('myApp')
             }
             return currentPath === path.split('/')[1];
         };
-        $scope.menu = function () {
+
+        // Afficher le menu en mobile
+        $scope.menu = function() {
             var navSecEl = document.getElementById('navSec');
             var mediatekLinkEl = document.getElementById('mediatekLink');
 
             navSecEl.classList.toggle('def-hidden');
             mediatekLinkEl.classList.toggle('link-color-black');
             mediatekLinkEl.classList.toggle('link-color-white');
+        };
+
+        // Ouvrir le modal
+        $scope.openModal = function() {
+            var el = document.getElementById('loginModal');
+            el.style.display = "block";
         };
     }
 });

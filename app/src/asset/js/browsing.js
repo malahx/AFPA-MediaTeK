@@ -21,26 +21,3 @@ window.addEventListener('scroll', function (e) {
         returnEl.classList.remove('right');
     }
 });
-
-var modal = {
-    dom: function() {
-        return document.getElementById('loginModal');
-    },
-    closeDom: function() {
-        return document.getElementById('loginModalClose');
-    },
-    open: function() {
-        modal.dom().style.display = "block";
-    },
-    close: function() {
-        modal.dom().style.display = "none";
-    },
-    init: function() {
-        window.onclick = function (event) {
-            if (event.target == modal.dom() || event.target == modal.closeDom()) {
-                modal.close();
-            }
-        };
-    }
-}
-modal.init();

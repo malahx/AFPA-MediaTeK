@@ -6,6 +6,7 @@ use DateTime;
 use DateInterval;
 use App\Util\Serializer;
 use App\Repository\BorrowRepository;
+use App\Controller\Auth;
 
 class Document {
 
@@ -61,6 +62,11 @@ class Document {
     }
     
     function catalog($request, $response, $args) {
+
+        if (!Auth::isLogged()) {
+            return $response->withStatus(401);
+        }
+            
         global $em;
 
         $repoBook = $em->getRepository('App\Entity\Book');

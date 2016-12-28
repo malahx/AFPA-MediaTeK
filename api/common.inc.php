@@ -28,3 +28,7 @@ use Doctrine\ORM\EntityManager;
 
 $doctrineConfig = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
 $em = EntityManager::create($dbParams, $doctrineConfig);
+
+// Session
+session_cache_limiter(false);
+session_start();

@@ -96,11 +96,39 @@ class User {
      */
     private $roles;
 
+     /**
+     * Get password
+     *
+     * @return string
+     */
+    public function getPassword() {
+        return $this->password;
+    }
+    
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId() {
+        return $this->id;
+    }
+     
+    /**
+     * Get roles
+     *
+     * @return integer
+     */
+    public function getRoles() {
+        return $this->roles;
+    }
+       
     function toArray() {
         return array(
             'id' => $this->id,
             'username' => $this->username,
             'email' => $this->email,
+            'roles' => $this->roles
         );
     }
 
