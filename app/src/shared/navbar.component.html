@@ -23,43 +23,43 @@
                 </a>
             </div>
             <div class="flex-child">
-                <a ng-class="{'link-color-black':isActive('/events'), 'link-color-white':!isActive('/events')}" class="no-decor" ng-href="#!/events">
+                <a ng-class="{'link-color-black':util.isActive('/events'), 'link-color-white':!util.isActive('/events')}" class="no-decor" ng-href="#!/events">
                     <i class="fa fa-calendar" aria-hidden="true"></i>
                     <span>Evènements</span>
                 </a>
             </div>
             <div class="flex-child">
-                <a ng-class="{'link-color-black':isActive('/info'), 'link-color-white':!isActive('/info')}" class="no-decor" href="#">
+                <a ng-class="{'link-color-black':util.isActive('/info'), 'link-color-white':!util.isActive('/info')}" class="no-decor" href="#">
                     <i class="fa fa-info" aria-hidden="true"></i>
                     <span>Informations</span>
                 </a>
             </div>
             <div class="flex-child">
-                <a ng-class="{'link-color-black':isActive('/'), 'link-color-white':!isActive('/')}" class="no-decor" ng-href="#!/news">
+                <a ng-class="{'link-color-black':util.isActive('/'), 'link-color-white':!util.isActive('/')}" class="no-decor" ng-href="#!/news">
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <span>Nouveautés</span>
                 </a>
             </div>
             <div ng-show="user.isLogged()" class="flex-child">
-                <a ng-class="{'link-color-black':isActive('/catalog'), 'link-color-white':!isActive('/catalog')}" class="no-decor" ng-href="#!/catalog">
+                <a ng-class="{'link-color-black':util.isActive('/catalog'), 'link-color-white':!util.isActive('/catalog')}" class="no-decor" ng-href="#!/catalog">
                     <i class="fa fa-list" aria-hidden="true"></i>
                     <span>Catalogue</span>
                 </a>
             </div>
-            <div ng-show="isActive('/document')" class="flex-child">
-                <a ng-class="{'link-color-black':isActive('/document'), 'link-color-white':!isActive('/document')}" class="no-decor">
+            <div ng-show="util.isActive('/document')" class="flex-child">
+                <a ng-class="{'link-color-black':util.isActive('/document'), 'link-color-white':!util.isActive('/document')}" class="no-decor">
                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                     <span>Document</span>
                 </a>
             </div>
             <div ng-show="user.isLogged()" class="flex-child">
-                <a ng-class="{'link-color-black':isActive('/myBorrows'), 'link-color-white':!isActive('/myBorrows')}" class="no-decor" ng-href="#!/myBorrows">
+                <a ng-class="{'link-color-black':util.isActive('/myBorrows'), 'link-color-white':!util.isActive('/myBorrows')}" class="no-decor" ng-href="#!/myBorrows">
                     <i class="fa fa-bookmark" aria-hidden="true"></i>
                     <span>Vos Emprunts</span>
                 </a>
             </div>
             <div ng-show="user.isAdmin()" class="flex-child">
-                <a ng-class="{'link-color-black':isActive('/borrows'), 'link-color-white':!isActive('/borrows')}" class="no-decor" ng-href="#!/borrows">
+                <a ng-class="{'link-color-black':util.isActive('/borrows'), 'link-color-white':!util.isActive('/borrows')}" class="no-decor" ng-href="#!/borrows">
                     <i class="fa fa-lock" aria-hidden="true"></i>
                     <span>Tous les Emprunts</span>
                 </a>
@@ -87,12 +87,6 @@
     <footer id="title" class="desktop-hidden">
         <div class="bold">
             <span>{{ title() }}</span>
-            <!-- Fermeture de la nav à ajouter
-            <div id="closeNav" class="show">
-                <a class="link-color-white no-decor" href="#top">
-                    <i class="fa fa-close" aria-hidden="true"></i>
-                </a>
-            </div>-->
             <div id="return" class="def-hidden">
                 <a class="link-color-white no-decor" href="#top">
                     <i class="fa fa-arrow-up" aria-hidden="true"></i>

@@ -5,9 +5,10 @@ angular.module('myApp')
 .component('navbar', {
     templateUrl: 'src/shared/navbar.component.html',
     controllerAs: 'NavbarCtrl',
-    controller: function($scope, $route, $location, user) {
+    controller: function($scope, $route, $location, user, util) {
 
         $scope.user = user;
+        $scope.util = util;
         
         // Quel est le titre ?
         $scope.title = function() {
@@ -30,18 +31,6 @@ angular.module('myApp')
                 return "Vos Emprunts";
             }
             return;
-        };
-
-        // Quel route est active ?
-        $scope.isActive = function(path) {
-            var currentPath = $location.path().split('/')[1];
-            if (!currentPath) {
-                return '' === path.split('/')[1];
-            }
-            if (currentPath.indexOf('?') !== -1) {
-                currentPath = currentPath.split('?')[0];
-            }
-            return currentPath === path.split('/')[1];
         };
 
         // Afficher le menu en mobile

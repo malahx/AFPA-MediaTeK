@@ -9,8 +9,12 @@ angular.module('myApp.catalog', ['ngRoute'])
   });
 }])
 
-.controller('CatalogCtrl', ['$scope', '$http', 'user',
-    function($scope, $http, user) {
+.controller('CatalogCtrl', ['$scope', '$http', 'user', 'util',
+    function($scope, $http, user, util) {
+      
+      $scope.util = util;
+      $scope.date = new Date();
+      
       if (!user.isLogged()) {
         $scope.notLogged = true;
       } else {
