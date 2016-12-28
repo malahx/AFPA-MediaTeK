@@ -13,7 +13,7 @@ angular.module('myApp')
         $scope.title = function() {
             var route = $route.routes[$location.path()];
             if (!route) {
-                return "Nouveautés";
+                return "Document";
             }
             var controller = route.controller;
             if (controller === "NewsCtrl") {
@@ -22,6 +22,12 @@ angular.module('myApp')
                 return "Evènements";
             } else if (controller === "DocCtrl") {
                 return "Document";
+            } else if (controller === "CatalogCtrl") {
+                return "Catalogue";
+            } else if (controller === "BorrowsCtrl") {
+                return "Tous les Emprunts";
+            } else if (controller === "myBorrowsCtrl") {
+                return "Vos Emprunts";
             }
             return;
         };

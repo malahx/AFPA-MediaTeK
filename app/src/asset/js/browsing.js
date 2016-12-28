@@ -19,5 +19,12 @@ window.addEventListener('scroll', function (e) {
     } else if (bottomNavbar > 0 || bottomNavSecEl > 0) {
         titleEl.classList.remove('fixed');
         returnEl.classList.remove('right');
+        if (window.innerWidth > 800) {
+            titleEl.classList.add('desktop-hidden');
+        }
+    } else {
+        if (window.innerWidth > 800) {
+            titleEl.classList.remove('desktop-hidden');
+        }
     }
 });
