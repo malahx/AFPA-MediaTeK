@@ -1,6 +1,6 @@
 angular.module('myApp')
 
-.factory('user', function ($http) {
+.factory('user', function ($http, $location) {
     var error = false;
     
     return {
@@ -27,6 +27,7 @@ angular.module('myApp')
         },
         logout: function() {
             sessionStorage.removeItem("user");
+            $location.path("/");
         },
         isLogged: function() {
             return sessionStorage.getItem("user") != null;
