@@ -1,4 +1,5 @@
 <section>
+    <div ng-Hide="!notLogged" class="red">Vous devez être loggué</div>
     <ul class="flex-parent-col">
         <li ng-repeat="doc in docs" class="flex-child doc border {{ doc.borrow  == null ? 'green' : doc.borrow.isReserved ? 'orange' : 'red' }}" style="order: 1;">
             <a class="flex-parent-row no-decor" ng-href="#!/document/{{ doc.document.id }}" title="{{ doc.document.title }} - {{ doc.author }}">

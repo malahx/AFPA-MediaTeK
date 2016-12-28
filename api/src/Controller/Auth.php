@@ -9,7 +9,7 @@ class Auth {
     protected $ci;
 
     public static function isLogged() {
-        return $_SESSION['userid'] != null;
+        return isset($_SESSION['userid']) && $_SESSION['userid'] != null;
     }
 
     public function __construct(ContainerInterface $ci) {

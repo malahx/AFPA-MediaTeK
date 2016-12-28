@@ -41,19 +41,19 @@
                 </a>
             </div>
             <div ng-hide="!user.isLogged()" class="flex-child">
-                <a class="link-color-white no-decor" href="#">
+                <a ng-class="{'link-color-black':isActive('/catalog'), 'link-color-white':!isActive('/catalog')}" class="no-decor" ng-href="#!/catalog">
                     <i class="fa fa-list" aria-hidden="true"></i>
                     <span>Catalogue</span>
                 </a>
             </div>
             <div ng-hide="!user.isLogged()" class="flex-child">
-                <a class="link-color-white no-decor" href="#">
+                <a ng-class="{'link-color-black':isActive('/myBorrows'), 'link-color-white':!isActive('/myBorrows')}" class="no-decor" ng-href="#!/myBorrows">
                     <i class="fa fa-bookmark" aria-hidden="true"></i>
                     <span>Vos emprunts</span>
                 </a>
             </div>
             <div ng-hide="!user.isAdmin()" class="flex-child">
-                <a class="link-color-white no-decor" href="#">
+                <a ng-class="{'link-color-black':isActive('/borrows'), 'link-color-white':!isActive('/borrows')}" class="no-decor" ng-href="#!/borrows">
                     <i class="fa fa-lock" aria-hidden="true"></i>
                     <span>Tous les Emprunts</span>
                 </a>
@@ -76,36 +76,6 @@
                     <span>Déconnection</span>
                 </a>
             </div>
-            <!--{% if is_granted("ROLE_ADMIN") %}
-                <div class="flex-child">
-                    <a class="{% if app.request.get('_route') == 'borrows' %}link-color-black{% else %}link-color-white{% endif %} no-decor" href="{{ path('borrows') }}">
-                        <i class="fa fa-lock" aria-hidden="true"></i>
-                        <span>Tous les Emprunts</span>
-                    </a>
-                </div>
-            {% endif %}
-
-            {% if not is_granted("IS_AUTHENTICATED_FULLY") %}
-                <div id="loginModalBtn" class="flex-child">
-                    <a class="link-color-white no-decor">
-                        <i class="fa fa-sign-in" aria-hidden="true"></i>
-                        <span>Se connecter</span>
-                    </a>
-                </div>
-                <div class="flex-child">
-                    <a class="link-color-white no-decor" href="{{ path('fos_user_registration_register') }}">
-                        <i class="fa fa-sign-out" aria-hidden="true"></i>
-                        <span>S'enregistrer</span>
-                    </a>
-                </div>
-            {% else %}
-                <div class="flex-child">
-                    <a class="link-color-white no-decor" href="{{ path('fos_user_security_logout') }}">
-                        <i class="fa fa-sign-out" aria-hidden="true"></i>
-                        <span>Déconnection</span>
-                    </a>
-                </div>
-            {% endif %} -->
         </div>
     </section>
     <footer id="title" class="desktop-hidden">
