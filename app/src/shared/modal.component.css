@@ -1,12 +1,5 @@
 /* MODAL */
 
-.red {
-    border-radius: 5px;
-    padding: 5px;
-    margin: 5px;
-}
-
-
 #loginModalBtn {
     cursor: pointer;
 }
