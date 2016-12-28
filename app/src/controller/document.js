@@ -9,8 +9,11 @@ angular.module('myApp.document', ['ngRoute'])
   });
 }])
 
-.controller('DocCtrl', ['$scope', '$routeParams', '$http',
-    function($scope, $routeParams, $http) {
+.controller('DocCtrl', ['$scope', '$routeParams', '$http', 'user',
+    function($scope, $routeParams, $http, user) {
+
+      $scope.user = user;
+      
       $http.get('http://localhost:8888/api/document/' + $routeParams.id).then(function(response) {
         $scope.doc = response.data;
       });
