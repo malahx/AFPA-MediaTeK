@@ -2,7 +2,6 @@ angular.module('myApp')
 
 .factory('user', function ($http) {
     var error = false;
-    var user;
     
     return {
         hasError: function() {
@@ -11,7 +10,7 @@ angular.module('myApp')
         login: function(username, password, scope = null) {
             var success = function(response) {
                 error = false;
-                user = response.data;
+                sessionStorage.setItem("user", JSON.stringify(response.data));
                 if (scope != null) {
                     scope.close();
                 }
@@ -27,13 +26,17 @@ angular.module('myApp')
             $http.post('http://localhost:8888/api/login', { '_username': username, '_password': password }).then(success, error);
         },
         logout: function() {
-            user = null;
+            sessionStorage.removeItem("user");
         },
         isLogged: function() {
-            return user != null;
+            return sessionStorage.getItem("user") != null;
+        },
+        isAdmin: function() {
+            return this.isLogged() && this.getUser()["roles"].indexOf("ROLE_ADMIN") != -1;
         },
         getUser: function() {
-            return user;
+            user = sessionStorage.getItem("user");
+            return user ? JSON.parse(user) : null;
         }
     }
 });
