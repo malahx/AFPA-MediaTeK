@@ -32,4 +32,6 @@ $em = EntityManager::create($dbParams, $doctrineConfig);
 
 // Session
 session_cache_limiter(false);
-session_start();
+if(!isset($_SESSION)) { 
+	session_start(); 
+} 
