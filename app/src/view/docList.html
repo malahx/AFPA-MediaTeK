@@ -1,0 +1,23 @@
+<section>
+    <div ng-show="notLogged" class="red danger">Vous devez être connecté</div>
+    <ul class="flex-parent-col">
+        <li ng-repeat="doc in docs" style="order: {{ util.order(doc, date) }};" class="flex-child doc border {{ doc.borrow  == null ? 'green' : doc.borrow.isReserved ? 'orange' : 'red' }}">
+            <a class="flex-parent-row no-decor" ng-href="#!/document/{{ doc.document.id }}" title="{{ doc.document.title }} - {{ doc.author }}">
+                <img class="flex-child cover center" ng-src="src/asset/img/{{ doc.document.cover }}" alt="{{ doc.document.title }}"/>
+                <div class="flex-child flex-parent-col info center">
+                    <ul>
+                        <li class="flex-child text bold"><i class="fa fa-{{ doc.type == 1 ? 'book' : doc.type == 2 ? 'music' : 'comments-o' }}" aria-hidden="true"></i> {{ doc.document.title }}</li>
+                        <li class="flex-child text italic"> {{ doc.author || doc.composer || doc.cartoonist }}</li>
+                        <li class="flex-child text ico">
+                            <i class="fa fa-{{ doc.borrow  == null ? 'plus-circle' : doc.borrow.isReserved ? 'times-circle' : 'minus-circle' }} fa-3x" aria-hidden="true"></i>
+                            <p>{{ doc.borrow  == null ? 'Disponible' : doc.borrow.isReserved ? 'Réservé' : 'Emprunté' }}</p>
+                            <p ng-hide="util.isActive('/myBorrows') || util.isActive('/borrows')">Ajouté le : {{ (doc.document.date * 1000) | date:'dd/MM/yyyy' }}</p>
+                            <p ng-show="doc.borrow != null && doc.borrow.isReserved && (util.isActive('/myBorrows') || util.isActive('/borrows'))">Réservé le : {{ (doc.borrow.reservation * 1000) | date:'dd/MM/yyyy' }}</p>
+                            <p ng-show="doc.borrow != null && doc.borrow.plannedReturn != null && (util.isActive('/myBorrows') || util.isActive('/borrows'))">à rendre pour le : {{ (doc.borrow.plannedReturn * 1000) | date:'dd/MM/yyyy' }}</p>
+                        </li>
+                    </ul>
+                </div>
+            </a>
+        </li>
+    </ul>
+</section>

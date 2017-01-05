@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Médiathèque / Pleyber Christ</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+        <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+        <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
+        <link rel="stylesheet" href="src/asset/css/index.css"/>
+        <link rel="stylesheet" href="src/shared/navbar.component.css"/>
+        <link rel="stylesheet" href="src/shared/modal.component.css"/>
+        <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">-->
+        <!--<link rel="stylesheet" href="src/Asset/css/fawesome/css/font-awesome.min.css" />-->
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">-->
+        <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
+    </head>
+    <body>
+
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <header ng-include="'src/view/elements/header.html'"></header>
+        <navbar></navbar>
+
+        <main ng-view></main>
+
+        <footer class="center" ng-include="'src/view/elements/footer.html'"></footer>
+        <modal id="loginModal" class="modal" ng-click="close()"></modal>
+
+        <!-- In production use:
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+        -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="app.js"></script>
+        <script src="src/controller/news.js"></script>
+        <script src="src/controller/document.js"></script>
+        <script src="src/controller/events.js"></script>
+        <script src="src/controller/catalog.js"></script>
+        <script src="src/controller/myborrows.js"></script>
+        <script src="src/controller/borrows.js"></script>
+        <script src="src/shared/modal.component.js"></script>
+        <script src="src/shared/navbar.component.js"></script>
+        <script src="src/shared/user.service.js"></script>
+        <script src="src/shared/util.service.js"></script>
+        <script src="src/asset/js/browsing.js"></script>
+    </body>
+</html>

@@ -1,0 +1,268 @@
+/* GENERAL */
+.mobile-hidden {
+    display: none;
+}
+.desktop-hidden {
+    display: inherit;
+}
+.def-hidden {
+    display: none;
+}
+.button {
+    font-weight: bold;
+    padding: 5px;
+    margin: 5px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+.valid {
+    color: #DFF0D8;
+    background: #3C764F;
+}
+.valid:hover {
+    background: #DFF0D8;
+    color: #3C764F;
+    border-color: #3C764F;
+}
+.warning {
+    color: #FCF8E3;
+    background: #9C6D3B;
+}
+.warning:hover {
+    background: #FCF8E3;
+    color: #9C6D3B;
+    border-color: #9C6D3B;
+}
+.alert {
+    color: #F2DEDE;
+    background: #A94442;
+}
+.alert:hover {
+    background: #F2DEDE;
+    color: #A94442;
+    border-color: #A94442;
+}
+.right {
+    display: inline-block;
+    float: right;
+}
+.no-decor {
+    text-decoration: none;
+}
+.underline {
+    text-decoration: underline;
+}
+.link-color-black {
+    color: black;
+}
+.link-color-black:hover {
+    color: white;
+}
+.link-color-white {
+    color: white;
+}
+.link-color-white:hover {
+    color: black;
+}
+.bold {
+    font-weight: bold;
+}
+.italic {
+    font-style: italic;
+}
+.center {
+    text-align: center;
+}
+.right {
+    text-align: right;
+}
+.left {
+    text-align: left;
+}
+.flex-parent-col {
+    display: flex;
+    flex-direction: column;
+}
+.flex-parent-row {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.flex-child {
+    flex-grow: 1;
+    margin: auto;
+}
+.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background-color: #FFBB10;
+}
+.red {
+    color: #A94442;
+    background-color: #F2DEDE;
+}
+.danger {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+.green {
+    color: #3C764F;
+    background-color: #DFF0D8;
+}
+.orange {
+    color: #9C6D3B;
+    background-color: #FCF8E3;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body>main>section li.border {
+    border-bottom: 2px solid #E0A10D;
+}
+body>footer {
+    border-top: 10px solid #ECEDEE;
+}
+
+/* HEADER */
+body>header img {
+    width: 100%;
+    height: 100%;
+}
+
+/* MAIN */
+body>main li {
+    width: 100%;
+    list-style-type: none;
+}
+body>main>div .cover {
+    max-width: 100%;
+    max-height: 500px;
+}
+body>main ul {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+body>main>section>ul#events li {
+    background: #EAEAEA;
+}
+body>main>section>ul#events li:nth-child(odd) {
+    background: #AAAAAA;
+}
+body>main>section li>a {
+    color: inherit;
+}
+body>main>section li>a .cover {
+    max-width: 39%;
+    max-height: 200px;
+}
+body>main>section li>a .info {
+    width: 59%;
+}
+body>main>section li>a .info .text {
+    width: 100%;
+}
+body>main>section li>a .info .ico {
+    width: 100%;
+    height: 100%;
+}
+body>main>footer {
+    background-color: #878C95;
+}
+body>main>footer>ul {
+    width: 100%;
+}
+body>main>footer>ul>li {
+    width: 100%;
+    border-left: 1px solid #75787C;
+    border-right: 1px solid #75787C;
+}
+
+/* FOOTER */
+body>footer {
+    background-color: #878C95;   
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 800px) {
+    .mobile-hidden {
+        display: inherit;
+    }
+    .desktop-hidden {
+        display: none;
+    }
+    html {
+        position: relative;
+        min-height: 100%;
+    }
+    body  {
+        margin: 0 0 4em; /* bottom = footer height */
+    }
+    body img.flex-child {
+        flex-grow: 0;
+    }
+    body>header {
+        max-width: 768px;
+        margin: auto;
+    }
+    body>header img {
+        width: inherit;
+        max-height: 130px;
+    }
+    body>header .flex-parent-col {
+        flex-direction: row;
+    }    
+    body>main>section .flex-parent-col {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    body>main>section>ul>li.doc { 
+        margin: 1em;
+        width: 350px;
+        border: 2px solid;
+    }
+    body>main>section li.doc>a {
+        margin: 1em;
+    }
+    body>main>section div {
+        margin: 5px;
+    }
+    body>main>section>ul#events .date {
+        min-width: 7em;
+        flex-grow: 0;
+    }
+    body>main>section>ul#events .title {
+        min-width: 20em;
+        text-align: left;
+        flex-grow: 0;
+    }
+    body>main>section>ul#events .hour {
+        min-width: 10em;
+        flex-grow: 0;
+    }
+    body>main>section>ul#events .desc {
+        text-align: left;
+    }
+    body>main>div.document {
+        padding: 2em;
+    }
+    body>main {
+        min-height:100%;
+    }
+    body>footer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 4em;
+    }
+}
+

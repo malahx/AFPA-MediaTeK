@@ -1,0 +1,39 @@
+<div class="flex-parent-col document {{ doc.borrow  == null ? 'green' : doc.borrow.isReserved ? 'orange' : 'red' }}">
+    <img class="flex-child cover center" ng-src="src/asset/img/{{ doc.document.cover }}" alt="{{ doc.document.title }}"/>
+    <div class="document flex-child flex-parent-col info center">
+        <ul>
+            <li class="flex-child text bold"><i class="fa fa-{{ icon_book }}" aria-hidden="true"></i> {{ doc.document.title }}</li>
+            <li class="flex-child text italic">{{ doc.author || doc.composer || doc.cartoonist }}</li>
+            <li class="flex-child text">Date : {{ doc.year || ((doc.date * 1000) | date:'dd/MM/yyyy') }}</li><br/>
+            <li class="flex-child text ico">
+                <a ng-show="user.isLogged() && doc.borrow == null" id="borrow" class="button no-decor valid" ng-click="resa(doc.document.id)" class="no-decor"><i class="fa fa-plus-circle" aria-hidden="true"></i> Réserver {{ type }}</a>
+                <div ng-hide="doc.borrow == null">
+                    <i class="fa fa-{{ doc.borrow == null ? 'plus-circle' : doc.borrow.isReserved ? 'times-circle' : 'minus-circle' }} fa-3x" aria-hidden="true"></i>
+                    <p>{{ (doc.borrow == null ?
+                        'Disponible':
+                            (user.getUser().id == doc.borrow.user.id ?
+                                (doc.borrow.isReserved ?
+                                    'Vous avez réservé ce document':
+                                    'Vous avez emprunté ce document'):
+                                (doc.borrow.isReserved ?
+                                    'Ce document est déjà réservé':
+                                    'Ce document est déjà emprunté')))
+                    }}</p>
+                </div>
+                <div ng-hide="!user.isAdmin() || doc.borrow == null">
+                    <p>Utilisateur : <span class="bold">{{ doc.borrow.user.username }}</span></p>
+                    <p>Date de réservation : <span class="bold">{{ (doc.borrow.reservation * 1000) | date:'dd/MM/yyyy' }}</span></p>
+                    <div ng-hide="!doc.borrow.isBorrowed">
+                        <p>Date d'emprunt : <span class="bold">{{ (doc.borrow.borrowing * 1000) | date:'dd/MM/yyyy' }}</span></p>
+                        <p>Date de retour prévu : <span class="bold">{{ (doc.borrow.plannedReturn * 1000) | date:'dd/MM/yyyy' }}</span></p>
+                        <a class="button no-decor alert" ng-click="closeBorrowing(doc.borrow.id)">Clore l'emprunt</a>
+                    </div>
+                    <div ng-hide="!doc.borrow.isReserved" class="flex-parent-col">
+                        <a class="flex-child button no-decor warning" ng-click="closeBorrowing(doc.borrow.id)">Annuler la réservation</a>
+                        <a class="flex-child button no-decor alert" ng-click="borrow(doc.borrow.id)">Valider l'emprunt</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
