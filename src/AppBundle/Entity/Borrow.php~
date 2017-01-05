@@ -1,0 +1,74 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Borrow
+ *
+ * @ORM\Table(name="borrow", indexes={@ORM\Index(name="user_id", columns={"user_id", "document_id"}), @ORM\Index(name="Delete from work4", columns={"document_id"}), @ORM\Index(name="IDX_55DBA8B0A76ED395", columns={"user_id"})})
+ * @ORM\Entity
+ */
+class Borrow
+{
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="borrowing", type="datetime", nullable=false)
+     */
+    private $borrowing;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="planned_return", type="datetime", nullable=false)
+     */
+    private $plannedReturn;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="effective_return", type="datetime", nullable=false)
+     */
+    private $effectiveReturn;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="reservation", type="datetime", nullable=false)
+     */
+    private $reservation;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\Document
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Document")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="document_id", referencedColumnName="id")
+     * })
+     */
+    private $document;
+
+    /**
+     * @var \AppBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
+
+
+}
+

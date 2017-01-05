@@ -1,0 +1,51 @@
+{# document Twig template #}
+{% extends 'AppBundle:elements:base.html.twig' %}
+{% block body %}
+    {% set color = (borrow == null ? 'green' : (not borrow.borrowing ? 'orange' : 'red')) %}
+    {% set icon = (borrow == null ? 'plus-circle' : (not borrow.borrowing ? 'times-circle' : 'minus-circle')) %}
+    {% set text = (borrow == null ? 
+        'Disponible' : 
+        (app.user == borrow.user ?
+            (not borrow.borrowing ? 
+                ('Vous avez réservé ' ~ type)|upper : 
+                ('Vous avez emprunté ' ~ type)|upper) :
+            (not borrow.borrowing ? 
+                (type ~ ' est déjà réservé')|upper : 
+                (type ~ ' est déjà emprunté')|upper))) %}
+
+    {% set icon_book = (type == 'ce livre' ? 'book' : (type == 'ce disque' ? 'music' : 'comments-o')) %}
+    <main>
+        <div class="flex-parent-col {{ color }} document">
+            <img class="flex-child cover center" src="{{ asset('bundles/app/img/' ~ cover) }}" alt="{{ docTitle }}"/>
+            <div class="document flex-child flex-parent-col info center">
+                <ul>
+                    <li class="flex-child text bold"><i class="fa fa-{{ icon_book }}" aria-hidden="true"></i> {{ docTitle }}</li>
+                    <li class="flex-child text italic">{{ author }}</li>
+                    <li class="flex-child text">Date : {{ date }}</li><br/>
+                    <li class="flex-child text ico">
+                        {% if (borrow == null and is_granted("IS_AUTHENTICATED_FULLY")) %}
+                            <a id="borrow" class="button no-decor valid" href="{{ path('resa', {'id': id})}}" class="no-decor"><i class="fa fa-plus-circle" aria-hidden="true"></i> Réserver {{ type }}</a>
+                        {% else %}
+                            <i class="fa fa-{{ icon }} fa-3x" aria-hidden="true"></i>
+                            <p>{{ text }}</p>
+                            {% if (is_granted("ROLE_ADMIN")) %}
+                                {% if borrow %}
+                                    <p>Utilisateur : <span class="bold">{{ borrow.user.username }}</span></p>
+                                    <p>Date de réservation : <span class="bold">{{ borrow.reservation|date("d/m/Y") }}</span></p>
+                                    {% if (borrow.borrowing) %}
+                                        <p>Date d'emprunt : <span class="bold">{{ borrow.borrowing|date("d/m/Y") }}</span></p>
+                                        <p>Date de retour prévu : <span class="bold">{{ borrow.plannedReturn|date("d/m/Y") }}</span></p>
+                                        <a class="button no-decor alert" href="{{ path('closeBorrowing', {'id': borrow.id}) }}">Clore l'emprunt</a>
+                                    {% elseif (borrow.reservation) %}
+                                        <a class="button no-decor warning" href="{{ path('closeBorrowing', {'id': borrow.id}) }}">Annuler la réservation</a>
+                                        <a class="button no-decor alert" href="{{ path('borrow', {'id': borrow.id}) }}">Valider l'emprunt</a>
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+{% endblock %}

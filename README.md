@@ -22,4 +22,3 @@ Evaluation AFPA - Module Web Gestionnaire de Médiathèque
 
 Dans le cas où vous utilisiez des ports différents, pensez à changer le CORS Origin : `api/common.inc.php`
 Le CORS Origin ne peut pas être * lorsque l'on active les Credentials (nécessaire pour les cookies de la session php). 
-
